@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto_AutoRenta.Entities;
+using Proyecto_AutoRenta.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +25,7 @@ namespace Proyecto_AutoRenta.Vistas
         {
             InitializeComponent();
         }
-
+        CRUDUsuario iniciar = new CRUDUsuario();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) 
@@ -44,9 +46,55 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            CRUDUsuario CrudUsuario = new CRUDUsuario();
-            Close();
-            CrudUsuario.Show();
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+            Usuario usuario = ObtenerUsuario(username, password);
+
+            if (usuario != null)
+            {
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre de usuario y contraseña válidos.");
+                    return;
+                }
+                string rol = usuario.Roles.Nombre;
+                switch (rol)
+                {
+                    case "SuperAdmin":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        iniciar.Show();
+                        break;
+                    case "Usuario":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Credenciales invalidas. Por favor intentelo nuevamente", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        UsuarioServices usuarioservices = new UsuarioServices();
+        private Usuario ObtenerUsuario(string username, string password)
+        {
+
+            List<Usuario> usuarios = usuarioservices.GetUsuarios();
+            List<Rol> roles = usuarioservices.GetRoles();
+
+            Usuario usuario = usuarios.FirstOrDefault(u => u.UserName == username && u.Password == password);
+
+            if (usuario != null)
+            {
+                Rol rolUsuario = roles.FirstOrDefault(r => r.PkRol == usuario.FkRol);
+                usuario.Roles = rolUsuario;
+            }
+
+            return usuario;
         }
     }
 }
