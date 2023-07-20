@@ -25,6 +25,7 @@ namespace Proyecto_AutoRenta.Vistas
         public Inventario()
         {
             InitializeComponent();
+            GetUserTable();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -43,6 +44,12 @@ namespace Proyecto_AutoRenta.Vistas
         {
             Application.Current.Shutdown();
         }
+        public void BtnFlechaIzquierda_Click (object sender, RoutedEventArgs e)
+        {
+            Login iniciar = new Login();
+            iniciar.Show();
+            this.Close();
+        }
 
         VehiculosServices services = new VehiculosServices();
         Vehiculos vehiculo = new Vehiculos();
@@ -53,17 +60,17 @@ namespace Proyecto_AutoRenta.Vistas
             if (txtPkVehiculo.Text == "")
             {
                 vehiculo.Modelo = txtModelo.Text;
-                vehiculo.Tipo = txtTipo.Text;
+                vehiculo.Tipo = SelectTipo.Text;
                 vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
                 services.AddVehiculo(vehiculo);
 
                 txtModelo.Clear();
-                txtTipo.Clear();
+                SelectTipo.SelectedIndex = -1;
                 txtTarifa.Clear();
 
                 MessageBox.Show("SE AGREGÓ EL VEHÍCULO CORRECTAMENTE");
-                //GetUserTable();
+                GetUserTable();
             }
 
             else if (txtPkVehiculo.Text != "")
@@ -71,7 +78,7 @@ namespace Proyecto_AutoRenta.Vistas
                 int id = int.Parse(txtPkVehiculo.Text);
                 vehiculo.PkVehiculo = id;
                 vehiculo.Modelo = txtModelo.Text;
-                vehiculo.Tipo = txtTipo.Text;
+                vehiculo.Tipo = SelectTipo.Text;
                 vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
                 services.UpdateUser(vehiculo);
@@ -79,12 +86,33 @@ namespace Proyecto_AutoRenta.Vistas
                 MessageBox.Show("¡Datos del vehículos modificados correctamente!");
                 txtPkVehiculo.Clear();
                 txtModelo.Clear();
-                txtTipo.Clear();
+                SelectTipo.SelectedIndex = -1;
                 txtTarifa.Clear();
 
-                //GetUserTable();
+                GetUserTable();
             }
 
+        }
+        private void EditItem(object sender, RoutedEventArgs e)
+        {
+
+            vehiculo = (sender as FrameworkElement).DataContext as Vehiculos;
+
+            txtPkVehiculo.Text = vehiculo.PkVehiculo.ToString();
+            txtModelo.Text = vehiculo.Modelo.ToString();
+            SelectTipo.Text = vehiculo.Tipo.ToString();
+            txtTarifa.Text = vehiculo.Tarifa.ToString();
+        }
+        public void DeleteItem(object sender, RoutedEventArgs e)
+        {
+            vehiculo = (sender as FrameworkElement).DataContext as Vehiculos;
+            int ID = int.Parse(vehiculo.PkVehiculo.ToString());
+            services.DeleteUser(ID);
+            GetUserTable();
+        }
+        public void GetUserTable()
+        {
+            UserTable.ItemsSource = services.GetUsuarios();
         }
     }
 }

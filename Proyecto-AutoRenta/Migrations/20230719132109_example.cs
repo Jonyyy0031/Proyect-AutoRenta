@@ -21,6 +21,21 @@ namespace Proyecto_AutoRenta.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Vehiculo",
+                columns: table => new
+                {
+                    PkVehiculo = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Modelo = table.Column<string>(type: "text", nullable: false),
+                    Tipo = table.Column<string>(type: "text", nullable: false),
+                    Tarifa = table.Column<double>(type: "double", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehiculo", x => x.PkVehiculo);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -52,6 +67,9 @@ namespace Proyecto_AutoRenta.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "Vehiculo");
 
             migrationBuilder.DropTable(
                 name: "Roles");

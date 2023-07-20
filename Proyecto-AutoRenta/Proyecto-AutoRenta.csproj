@@ -9,12 +9,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\6hkkleubbd931.jpg" />
+    <None Remove="Images\cars %281%29.png" />
+    <None Remove="Images\coche.png" />
+    <None Remove="Images\coche2.png" />
+    <None Remove="Images\coche_INVENTARIO.png" />
+    <None Remove="Images\flecha-izquierda.png" />
+    <None Remove="Images\fondo_inventario.png" />
+    <None Remove="Images\key-icon.png" />
+    <None Remove="Images\moneda.png" />
+    <None Remove="Images\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\6hkkleubbd931.jpg" />
+    <Resource Include="Images\cars (1).png" />
+    <Resource Include="Images\coche.png" />
+    <Resource Include="Images\coche2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\coche_INVENTARIO.png" />
+    <Resource Include="Images\flecha-izquierda.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\fondo_inventario.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\key-icon.png" />
+    <Resource Include="Images\moneda.png" />
+    <Resource Include="Images\user-icon.png" />
   </ItemGroup>
 
 </Project>

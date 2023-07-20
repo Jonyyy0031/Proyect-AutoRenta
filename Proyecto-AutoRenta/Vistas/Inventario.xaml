@@ -14,6 +14,10 @@
         MouseDown="Window_MouseDown">
 
     <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="\Images\fondo_inventario.png"
+                        Stretch="UniformToFill" Opacity="1"/>
+        </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
             Opacity="0.95">
@@ -110,37 +114,9 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-                <Label Content="¡Bienvenido!" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24"/>
-                <Label Content="Modelo del vehículo&#xD;&#xA;" HorizontalAlignment="Left" Margin="32,94,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="43" FontSize="18"/>
+                <Label Content="¡Bienvenido!" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="0,29,0,0" Grid.RowSpan="2"/>
+                <Label Content="Modelo del vehículo&#xD;&#xA;" HorizontalAlignment="Left" Margin="144,52,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="44" FontSize="18"/>
                 <TextBox x:Name="txtModelo" 
-                         FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"                            
-                             Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="37,120,511,368"
-                             Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="NaN">
-                    <TextBox.ToolTip>
-                        <ToolTip Content="Ingresa el modelo del vehículo que registrará"/>
-                    </TextBox.ToolTip>
-                </TextBox>
-                <Label Content="Tipo de vehículo" HorizontalAlignment="Left" Margin="32,165,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
-                <Label Content="Tarifa de renta" HorizontalAlignment="Left" Margin="32,240,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="btnAgregar"
-                    Content="Agregar"
-                    HorizontalAlignment="Left"
-                      Margin="88,356,0,0"
-                     Grid.Row="1"
-                     VerticalAlignment="Top"
-                     Height="61"
-                     Width="146"
-                     Style="{StaticResource RoundButtonTemplate}"
-                     Click="BtnAgregar_Click" FontWeight="Bold" FontSize="20"/>
-                <TextBox x:Name="txtTipo" 
                     FontSize="13"
                     FontWeight="Medium"
                     FontFamily="Montserrat"                            
@@ -150,10 +126,16 @@
                     BorderThickness="0,0,0,2"
                     Height="28"
                     VerticalContentAlignment="Center"
-                    Margin="37,199,511,289"
-                    Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="NaN">
+                    Margin="154,86,480,402"
+                    Padding="26,0,0,0" Grid.Row="1" Width="NaN">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="D:\23BM\Proyect-AutoRenta\Proyecto-AutoRenta\Images\coche2.png"
+                    Stretch="Uniform"
+                    AlignmentX="Left"
+                    AlignmentY="Center" Opacity=".6"/>
+                    </TextBox.Background>
                     <TextBox.ToolTip>
-                        <ToolTip Content="Ingresa el tipo del vehículo que registrará"/>
+                        <ToolTip Content="Ingresa el modelo del vehículo que registrará"/>
                     </TextBox.ToolTip>
                 </TextBox>
                 <TextBox x:Name="txtTarifa" 
@@ -166,18 +148,45 @@
                     BorderThickness="0,0,0,2"
                     Height="28"
                     VerticalContentAlignment="Center"
-                    Margin="37,274,511,214"
-                    Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="NaN">
+                    Margin="398,84,256,404"
+                    Padding="25,0,0,0" Grid.Row="1" Width="NaN">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="\Images\moneda.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left" TileMode="None"/>
+                    </TextBox.Background>
                     <TextBox.ToolTip>
-                        <ToolTip Content="Ingresa el precio de renta sin IVA"/>
+                        <ToolTip Content="Ingresa el precio de renta sin IVA/24 hrs"/>
                     </TextBox.ToolTip>
                 </TextBox>
-                <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="332,116,34,99" Height="NaN" Grid.Row="1" Width="NaN">
+                <Label Content="Tipo de vehículo" HorizontalAlignment="Left" Margin="609,52,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
+                <Label Content="Tarifa de renta" HorizontalAlignment="Left" Margin="402,48,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="btnAgregar"
+                    Content="Agregar"
+                    HorizontalAlignment="Center"
+                      Margin="0,459,0,0"
+                     Grid.Row="1"
+                     VerticalAlignment="Top"
+                     Height="35"
+                     Width="124"
+                     Style="{StaticResource RoundButtonTemplate}"
+                     Click="BtnAgregar_Click" FontWeight="Bold" FontSize="20" Background="#FF1E42FF"/>
+                <DataGrid x:Name="UserTable" 
+                          AutoGenerateColumns="False" 
+                          CanUserAddRows="False" 
+                          IsReadOnly="True" 
+                          ColumnWidth="*" 
+                          IsSynchronizedWithCurrentItem="True" 
+                          Margin="26,143,26,72" 
+                          Height="NaN" 
+                          Grid.Row="1" 
+                          Width="NaN"
+                          Background="#FF8F86C7">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding PkUsuario}" />
-                        <DataGridTextColumn Header="Modelo" Binding="{Binding Nombre}" />
-                        <DataGridTextColumn Header="Tipo" Binding="{Binding UserName}" />
-                        <DataGridTextColumn Header="Tarifa" Binding="{Binding Password}" />
+                        <DataGridTextColumn Header="Id" Binding="{Binding PkVehiculo}" />
+                        <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" />
+                        <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
+                        <DataGridTextColumn Header="Tarifa" Binding="{Binding Tarifa}" />
 
 
                         <DataGridTemplateColumn Header="Editar">
@@ -206,12 +215,54 @@
                     BorderThickness="0,0,0,2"
                     Height="28"
                     VerticalContentAlignment="Center"
-                    Margin="37,48,698,440"
-                    Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="NaN">
+                    Margin="52,84,711,404"
+                    IsEnabled="False"
+                    Padding="10,0,0,0" Grid.Row="1" Background="{x:Null}" Width="NaN">
                     <TextBox.ToolTip>
                         <ToolTip Content="En este campo se enseñará el ID del vehículo"/>
                     </TextBox.ToolTip>
                 </TextBox>
+                <ComboBox x:Name="SelectTipo" HorizontalAlignment="Left" Margin="613,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Height="29">
+                    <ComboBoxItem Content="Deportivo" />
+                    <ComboBoxItem Content="Furgonetas" />
+                    <ComboBoxItem Content="Eléctrico" />
+                    <ComboBoxItem Content="Convertibles" />
+                    <ComboBoxItem Content="Sedanes" />
+
+                    <!-- Add more items as needed -->
+                </ComboBox>
+
+                <Label Content="ID" HorizontalAlignment="Left" Margin="52,48,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="btnFlechaIzquierda"                          
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="BtnFlechaIzquierda_Click" Margin="10,5,765,489" Grid.Row="1">
+                    <Image Source="/Images/flecha-izquierda.png"
+                    Stretch="Fill"/>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
 
