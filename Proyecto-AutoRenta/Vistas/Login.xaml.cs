@@ -64,7 +64,9 @@ namespace Proyecto_AutoRenta.Vistas
                     case "SuperAdmin":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
+                        Inventario iniciar = new Inventario();
                         iniciar.Show();
+
                         break;
                     case "Usuario":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);

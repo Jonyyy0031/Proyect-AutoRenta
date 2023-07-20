@@ -74,7 +74,7 @@ namespace Proyecto_AutoRenta.Services
                     Vehiculos vehiculo = _context.Vehiculo.Find(request.PkVehiculo);
                     if (vehiculo != null)
                     {
-                        vehiculo.Modelo = vehiculo.Modelo;
+                        vehiculo.Modelo = request.Modelo;
                         vehiculo.Tipo = request.Tipo;
                         vehiculo.Tarifa = request.Tarifa;
 
@@ -91,6 +91,30 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Sucedio un error: " + ex.Message);
             }
         }
-            
+        public List<Vehiculos> GetUsuarios()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Vehiculos> vehiculo = _context.Vehiculo.ToList();
+
+                    if (vehiculo.Count > 0) //verificar lista vacia
+                    {
+
+                        return vehiculo;
+
+                    }
+
+                    return vehiculo;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error " + ex.Message);
+            }
+        }
+
     }
 }

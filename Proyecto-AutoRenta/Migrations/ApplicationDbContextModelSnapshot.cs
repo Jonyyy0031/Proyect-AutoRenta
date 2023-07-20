@@ -60,6 +60,28 @@ namespace Proyecto_AutoRenta.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("Proyecto_AutoRenta.Entities.Vehiculos", b =>
+                {
+                    b.Property<int>("PkVehiculo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Tarifa")
+                        .HasColumnType("double");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("PkVehiculo");
+
+                    b.ToTable("Vehiculo");
+                });
+
             modelBuilder.Entity("Proyecto_AutoRenta.Entities.Usuario", b =>
                 {
                     b.HasOne("Proyecto_AutoRenta.Entities.Rol", "Roles")

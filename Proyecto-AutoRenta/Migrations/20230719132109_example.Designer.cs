@@ -9,7 +9,7 @@ using Proyecto_AutoRenta.Context;
 namespace Proyecto_AutoRenta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230716010254_example")]
+    [Migration("20230719132109_example")]
     partial class example
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,6 +60,28 @@ namespace Proyecto_AutoRenta.Migrations
                     b.HasIndex("FkRol");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Proyecto_AutoRenta.Entities.Vehiculos", b =>
+                {
+                    b.Property<int>("PkVehiculo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Tarifa")
+                        .HasColumnType("double");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("PkVehiculo");
+
+                    b.ToTable("Vehiculo");
                 });
 
             modelBuilder.Entity("Proyecto_AutoRenta.Entities.Usuario", b =>
