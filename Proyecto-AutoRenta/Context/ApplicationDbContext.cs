@@ -21,8 +21,5 @@ namespace Proyecto_AutoRenta.Context
         public DbSet<Reserve> Reservas { get; set; }
 
         
-
-
-        
-    }
+     }
 }
