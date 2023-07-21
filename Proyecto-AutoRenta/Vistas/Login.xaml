@@ -15,7 +15,7 @@
 
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\6hkkleubbd931.jpg"
+            <ImageBrush ImageSource="\Images\6hkkleubbd931.jpg"
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="10"                    
@@ -118,7 +118,7 @@
                             Grid.Row="1"
                             Orientation="Vertical"
                             Margin="0,35,0,0">
-                    <Image Source="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\coche.png"
+                    <Image Source="\Images\coche.png"
                            Width="100" Height="100"/>
                     <TextBlock Text="AutoRenta"
                                Foreground="White"
@@ -153,7 +153,7 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <TextBox.Background>
-                            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\user-icon.png"
+                            <ImageBrush ImageSource="\Images\user-icon.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>
@@ -177,7 +177,7 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\key-icon.png"
+                            <ImageBrush ImageSource="\Images\key-icon.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>
