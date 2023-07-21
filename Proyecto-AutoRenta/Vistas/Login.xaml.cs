@@ -25,7 +25,7 @@ namespace Proyecto_AutoRenta.Vistas
         {
             InitializeComponent();
         }
-        CRUDUsuario iniciar = new CRUDUsuario();
+        Reserva iniciar = new Reserva();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) 

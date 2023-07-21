@@ -15,7 +15,8 @@
 
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="/Images/6hkkleubbd931.jpg"
+       
+            <ImageBrush ImageSource="\Images\6hkkleubbd931.jpg"
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="10"                    
@@ -120,6 +121,7 @@
                             Orientation="Vertical"
                             Margin="0,35,0,0">
                     <Image Source="/Images/coche.png"
+
                            Width="100" Height="100"/>
                     <TextBlock Text="AutoRenta"
                                Foreground="White"
@@ -155,6 +157,7 @@
                              Padding="20,0,0,0">
                         <TextBox.Background>
                             <ImageBrush ImageSource="/Images/user-icon.png"
+
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>
@@ -179,6 +182,7 @@
                              Padding="20,0,0,0">
                         <PasswordBox.Background>
                             <ImageBrush ImageSource="/Images/key-icon.png"
+
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>

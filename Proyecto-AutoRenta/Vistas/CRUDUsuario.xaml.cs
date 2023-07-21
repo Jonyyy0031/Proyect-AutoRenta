@@ -99,5 +99,10 @@ namespace Proyecto_AutoRenta.Vistas
                 DragMove();
             }
         }
+
+        private void txtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

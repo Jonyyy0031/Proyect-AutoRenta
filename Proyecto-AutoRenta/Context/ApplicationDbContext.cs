@@ -18,5 +18,8 @@ namespace Proyecto_AutoRenta.Context
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Vehiculos> Vehiculo { get; set;}
-    }
+        public DbSet<Reserve> Reservas { get; set; }
+
+        
+     }
 }
