@@ -144,7 +144,7 @@
 
 
             <ComboBox x:Name="SelectVehiculo" HorizontalAlignment="Left" Margin="10,358,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" Height="28" />
-            <Label Content="BIENVENIDO A RESERVAS" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="36" Margin="0,5,0,0"/>
+            <Label Content="RESERVAS" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="36" Margin="0,5,0,0"/>
             <Label Content="Nombre:" HorizontalAlignment="Left" Height="32" Margin="10,116,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
 
 

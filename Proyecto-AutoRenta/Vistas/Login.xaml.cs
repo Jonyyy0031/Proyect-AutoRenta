@@ -24,7 +24,19 @@ namespace Proyecto_AutoRenta.Vistas
         public Login()
         {
             InitializeComponent();
+            txtPassword.PreviewKeyDown += TxtPassword_PreviewKeyDown;
         }
+
+        private void TxtPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.Key == Key.Enter)
+            {
+                
+                btnLogin_Click(sender, e);
+            }
+        }
+
         Reserva iniciar = new Reserva();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -64,7 +76,7 @@ namespace Proyecto_AutoRenta.Vistas
                     case "SuperAdmin":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
-                        Inventario iniciar = new Inventario();
+                        VistaSuperAdmin iniciar = new VistaSuperAdmin();
                         iniciar.Show();
 
                         break;
