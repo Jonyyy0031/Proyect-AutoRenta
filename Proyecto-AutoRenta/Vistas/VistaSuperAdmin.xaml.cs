@@ -42,11 +42,34 @@ namespace Proyecto_AutoRenta.Vistas
             }
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CRUDUsuario iniciar = new CRUDUsuario();
-            this.Close();
-            iniciar.Show();
+            MessageBox.Show("Hola");
+        }
+
+        private void BtnGoUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnGoRoles_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnGoReservas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnGoInventario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnGoPagos_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

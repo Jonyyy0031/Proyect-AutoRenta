@@ -13,6 +13,7 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
+
     <Border CornerRadius="12">
         <Border.Background>
             <ImageBrush ImageSource="/Images/fondo_inventario.png"
@@ -114,14 +115,122 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-               
-                <Label Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="114,212,0,0" Grid.Row="1"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="104,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/engranaje.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="541,297,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/flota.png"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="351,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/gestion-de-equipos.png"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="158,297,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/metodo-de-pago.png"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="605,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/reserva.png" RenderTransformOrigin="0.69,0.536" />
-                <Label Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="380,212,0,0" Grid.Row="1"/>
+
+                <Button x:Name="BtnGoUsuarios" BorderThickness="0"  Margin="68,79,598,309" Grid.Row="1" Click="BtnGoUsuarios_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image  Source="/Images/engranaje.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
+                </Button>
+
+                <Button x:Name="BtnGoRoles" BorderThickness="0"  Margin="334,79,334,309" Grid.Row="1" Click="BtnGoRoles_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="/Images/gestion-de-equipos.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
+                </Button>
+
+                <Button x:Name="BtnGoReservas" BorderThickness="0"  Margin="604,79,63,309" Grid.Row="1" Click="BtnGoReservas_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="/Images/reserva.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
+                </Button>
+
+                <Button x:Name="BtnGoInventario" BorderThickness="0"  Margin="541,297,126,91" Grid.Row="1" Click="BtnGoInventario_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="/Images/flota.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
+                </Button>
+                <Button x:Name="BtnGoPagos" BorderThickness="0"  Margin="157,297,510,91" Grid.Row="1" Click="BtnGoPagos_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="/Images/metodo-de-pago.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
+                </Button>
+                <Label Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="79,207,0,0" Grid.Row="1"/>
+                <Label Content="Roles" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="0,207,0,0" Grid.Row="1"/>
                 <Label Content="Reservas" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="615,212,0,0" Grid.Row="1"/>
                 <Label Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="183,425,0,0" Grid.Row="1"/>
                 <Label Content="Inventario" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="541,425,0,0" Grid.Row="1"/>
