@@ -177,7 +177,7 @@
                           IsReadOnly="True" 
                           ColumnWidth="*" 
                           IsSynchronizedWithCurrentItem="True" 
-                          Margin="26,143,26,72" 
+                          Margin="26,143,26,62" 
                           Height="NaN" 
                           Grid.Row="1" 
                           Width="NaN"

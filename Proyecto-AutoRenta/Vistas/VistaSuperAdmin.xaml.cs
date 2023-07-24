@@ -41,35 +41,45 @@ namespace Proyecto_AutoRenta.Vistas
                 DragMove();
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Hola");
-        }
-
         private void BtnGoUsuarios_Click(object sender, RoutedEventArgs e)
         {
+            CRUDUsuario StartUSERS = new CRUDUsuario();
+            this.Close();
+            StartUSERS.Show();
 
         }
 
         private void BtnGoRoles_Click(object sender, RoutedEventArgs e)
         {
-
+            CRUDRoles StartCRUDROLES = new CRUDRoles();
+            this.Close();
+            StartCRUDROLES.Show();
         }
 
         private void BtnGoReservas_Click(object sender, RoutedEventArgs e)
         {
-
+            Reserva StartRESERVAS = new Reserva();
+            this.Close();
+            StartRESERVAS.Show();
         }
 
         private void BtnGoInventario_Click(object sender, RoutedEventArgs e)
         {
-
+            Inventario StartINVENTARIO = new Inventario();
+            this.Close();
+            StartINVENTARIO.Show();
         }
 
         private void BtnGoPagos_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btngoback_Click(object sender, RoutedEventArgs e)
+        {
+            Login StartLogin = new Login();
+            this.Close();
+            StartLogin.Show();
         }
     }
 }

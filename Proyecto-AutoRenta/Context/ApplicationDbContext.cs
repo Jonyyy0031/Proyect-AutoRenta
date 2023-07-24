@@ -40,6 +40,16 @@ namespace Proyecto_AutoRenta.Context
                     FkRol = 1,
                 }
             );
+            modelBuilder.Entity<Vehiculos>().HasData
+            (
+                new Vehiculos
+                {
+                    PkVehiculo = 1,
+                    Modelo = "2023223",
+                    Tipo = "Deportivo",
+                    Tarifa = 123,
+                }
+           );
         }
         
      }

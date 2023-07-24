@@ -18,6 +18,7 @@
     <None Remove="Images\coche2.png" />
     <None Remove="Images\coche_INVENTARIO.png" />
     <None Remove="Images\engranaje.png" />
+    <None Remove="Images\flecha-izquierda.png" />
     <None Remove="Images\flota.png" />
     <None Remove="Images\fondo_inventario.png" />
     <None Remove="Images\gerente-de-proyecto.png" />
@@ -28,9 +29,16 @@
     <None Remove="Images\logo.png" />
     <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
+    <None Remove="Images\pase-de-prensa.png" />
     <None Remove="Images\reserva.png" />
+    <None Remove="Images\tarjeta-de-identificacion %281%29.png" />
     <None Remove="Images\user-icon.png" />
     <None Remove="Images\usuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\flecha-izquierda.png" />
+    <Resource Include="Images\pase-de-prensa.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +73,7 @@
     <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
     <Resource Include="Images\reserva.png" />
+    <Resource Include="Images\tarjeta-de-identificacion (1).png" />
     <Resource Include="Images\user-icon.png" />
   </ItemGroup>
 

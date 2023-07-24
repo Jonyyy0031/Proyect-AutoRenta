@@ -229,6 +229,37 @@
                     </Button.Style>
                     <Image Source="/Images/metodo-de-pago.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
                 </Button>
+                <Button x:Name="btngoback"                          
+                BorderThickness="0"              
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="20,26,731,454" Grid.Row="1" Click="btngoback_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/cerrar-sesion.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="28" Height="28"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Label Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="79,207,0,0" Grid.Row="1"/>
                 <Label Content="Roles" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="0,207,0,0" Grid.Row="1"/>
                 <Label Content="Reservas" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="615,212,0,0" Grid.Row="1"/>
