@@ -10,15 +10,46 @@
 
   <ItemGroup>
     <None Remove="Images\6hkkleubbd931.jpg" />
+    <None Remove="Images\back-image.jpg" />
+    <None Remove="Images\candado.png" />
     <None Remove="Images\cars %281%29.png" />
+    <None Remove="Images\cerrar-sesion.png" />
     <None Remove="Images\coche.png" />
     <None Remove="Images\coche2.png" />
     <None Remove="Images\coche_INVENTARIO.png" />
+    <None Remove="Images\engranaje.png" />
     <None Remove="Images\flecha-izquierda.png" />
+    <None Remove="Images\flota.png" />
     <None Remove="Images\fondo_inventario.png" />
+    <None Remove="Images\gerente-de-proyecto.png" />
+    <None Remove="Images\gestion-de-equipos.png" />
+    <None Remove="Images\grupos.png" />
     <None Remove="Images\key-icon.png" />
+    <None Remove="Images\listas-de-control.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
+    <None Remove="Images\pase-de-prensa.png" />
+    <None Remove="Images\reserva.png" />
+    <None Remove="Images\tarjeta-de-identificacion %281%29.png" />
     <None Remove="Images\user-icon.png" />
+    <None Remove="Images\usuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\flecha-izquierda.png" />
+    <Resource Include="Images\pase-de-prensa.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\engranaje.png" />
+    <Resource Include="Images\flota.png" />
+    <Resource Include="Images\gestion-de-equipos.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\6hkkleubbd931.jpg" />
+    <Resource Include="Images\candado.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,21 +62,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\6hkkleubbd931.jpg" />
+    <Resource Include="Images\back-image.jpg" />
     <Resource Include="Images\cars (1).png" />
+    <Resource Include="Images\cerrar-sesion.png" />
     <Resource Include="Images\coche.png" />
-    <Resource Include="Images\coche2.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\coche2.png" />
     <Resource Include="Images\coche_INVENTARIO.png" />
-    <Resource Include="Images\flecha-izquierda.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\fondo_inventario.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\fondo_inventario.png" />
     <Resource Include="Images\key-icon.png" />
+    <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
+    <Resource Include="Images\reserva.png" />
+    <Resource Include="Images\tarjeta-de-identificacion (1).png" />
     <Resource Include="Images\user-icon.png" />
   </ItemGroup>
 

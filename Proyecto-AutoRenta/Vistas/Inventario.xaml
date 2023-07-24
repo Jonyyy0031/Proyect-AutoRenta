@@ -15,7 +15,7 @@
 
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="\Images\fondo_inventario.png"
+            <ImageBrush ImageSource="/Images/fondo_inventario.png"
                         Stretch="UniformToFill" Opacity="1"/>
         </Border.Background>
         <Border CornerRadius="10"                    
@@ -129,7 +129,7 @@
                     Margin="154,86,480,402"
                     Padding="26,0,0,0" Grid.Row="1" Width="NaN">
                     <TextBox.Background>
-                        <ImageBrush ImageSource="D:\23BM\Proyect-AutoRenta\Proyecto-AutoRenta\Images\coche2.png"
+                        <ImageBrush ImageSource="/Images/coche2.png"
                     Stretch="Uniform"
                     AlignmentX="Left"
                     AlignmentY="Center" Opacity=".6"/>
@@ -151,7 +151,7 @@
                     Margin="398,84,256,404"
                     Padding="25,0,0,0" Grid.Row="1" Width="NaN">
                     <TextBox.Background>
-                        <ImageBrush ImageSource="\Images\moneda.png"
+                        <ImageBrush ImageSource="/Images/moneda.png"
                                         Stretch="Uniform"
                                         AlignmentX="Left" TileMode="None"/>
                     </TextBox.Background>
@@ -177,7 +177,7 @@
                           IsReadOnly="True" 
                           ColumnWidth="*" 
                           IsSynchronizedWithCurrentItem="True" 
-                          Margin="26,143,26,72" 
+                          Margin="26,143,26,62" 
                           Height="NaN" 
                           Grid.Row="1" 
                           Width="NaN"
@@ -192,14 +192,14 @@
                         <DataGridTemplateColumn Header="Editar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Edit" Click="EditItem"/>
+                                    <Button Content="Edit" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="Borrar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delete" Click="DeleteItem"/>
+                                    <Button Content="Delete"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

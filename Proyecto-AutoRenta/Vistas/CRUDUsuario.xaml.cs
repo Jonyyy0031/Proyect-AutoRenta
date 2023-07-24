@@ -57,22 +57,42 @@ namespace Proyecto_AutoRenta.Vistas
                 txtUserName.Clear();
                 txtPassword.Clear();
 
-                MessageBox.Show("SE AGREGÓ CORRECTAMENTE");
+                MessageBox.Show("Se agregó correctamente");
                 GetUserTable();
             }
 
         }
         private void EditItem(object sender, RoutedEventArgs e)
         {
+            if (txtPkUser.Visibility == Visibility.Collapsed && ID.Visibility == Visibility.Collapsed)
+            {
 
+                txtPkUser.Visibility = Visibility.Visible;
+                ID.Visibility = Visibility.Visible;
+                Usuario usuario = new Usuario();
+                usuario = (sender as FrameworkElement).DataContext as Usuario;
+
+                txtPkUser.Text = usuario.PkUsuario.ToString();
+                txtNombre.Text = usuario.Nombre.ToString();
+                txtUserName.Text = usuario.UserName.ToString();
+                txtPassword.Text = usuario.Password;
+            }
+            else
+            {
+                ID.Visibility = Visibility.Collapsed;
+                txtPkUser.Visibility = Visibility.Collapsed;
+            }
+
+
+
+        }
+        public void DeleteItem(object sender, RoutedEventArgs e)
+        {
             Usuario usuario = new Usuario();
             usuario = (sender as FrameworkElement).DataContext as Usuario;
-
-            txtPkUser.Text = usuario.PkUsuario.ToString();
-            txtNombre.Text = usuario.Nombre.ToString();
-            txtUserName.Text = usuario.UserName.ToString();
-            txtPassword.Text = usuario.Password;
-
+            int ID = int.Parse(usuario.PkUsuario.ToString());
+            services.DeleteUser(ID);
+            GetUserTable();
         }
 
         public void GetUserTable()
@@ -98,6 +118,23 @@ namespace Proyecto_AutoRenta.Vistas
             {
                 DragMove();
             }
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btngoback_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
+            StartViewSA.Show();
         }
     }
 }
