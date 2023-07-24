@@ -26,9 +26,10 @@ namespace Proyecto_AutoRenta.Vistas
             InitializeComponent();
         }
         CRUDUsuario iniciar = new CRUDUsuario();
+        Pago Pago = new Pago();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed) 
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
@@ -61,10 +62,11 @@ namespace Proyecto_AutoRenta.Vistas
                 string rol = usuario.Roles.Nombre;
                 switch (rol)
                 {
-                    case "SuperAdmin":
+                    
+                    case "Super Admin":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
-                        iniciar.Show();
+                        Pago.Show();
                         break;
                     case "Usuario":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);

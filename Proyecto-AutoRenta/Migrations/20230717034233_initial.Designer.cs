@@ -9,8 +9,8 @@ using Proyecto_AutoRenta.Context;
 namespace Proyecto_AutoRenta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230716010254_example")]
-    partial class example
+    [Migration("20230717034233_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

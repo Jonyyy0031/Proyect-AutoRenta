@@ -1,0 +1,111 @@
+﻿<Window x:Class="Proyecto_AutoRenta.Vistas.Pago"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
+        mc:Ignorable="d"
+        Title="Pago" Height="450" Width="800">
+    <Grid HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF1B1448" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel
+            Orientation="Vertical"
+            Margin="578,0,15,0" 
+            Height="414" 
+            VerticalAlignment="Center">
+            <Label Content="Metodo de Pago:" Foreground="White"/>
+            <ComboBox x:Name="comboBoxPaymentMetodo" Width="202"/>
+            <Label x:Name="lblTarjeta" Content="Numero tarjeta:" Foreground="White"/>
+            <TextBox 
+                x:Name="txtCardNumberBox"
+                BorderThickness="0,0,0,2"
+                Padding="20 0 0 0"
+                Margin="0 0 0 0"
+                FontSize="13" 
+                Width="202" 
+                Foreground="White" 
+                CaretBrush="White"
+                TextWrapping="Wrap" 
+                Height="23">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-parte-trasera-de-tarjeta-bancaria-16.png"
+                                            Stretch="None"
+                                            AlignmentX="Left"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Expiración año (YYYY):" Foreground="White"/>
+            <TextBox 
+                x:Name="txtYearBox" 
+                BorderThickness="0,0,0,2"
+                Padding="20 0 0 0"
+                FontSize="13"
+                Width="202" 
+                Foreground="White" 
+                CaretBrush="White"
+                TextWrapping="Wrap" 
+                Height="23">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-calendario-12.png"
+                                            Stretch="None"
+                                            AlignmentX="Left"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Expiración mes (mm):" Foreground="White"/>
+            <TextBox 
+                x:Name="txtMonthBox" 
+                BorderThickness="0,0,0,2"
+                Padding="20 0 0 0"
+                FontSize="13"
+                Width="202" 
+                Foreground="White" 
+                CaretBrush="White"
+                TextWrapping="Wrap" 
+                Height="23">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-calendario-12.png"
+                                            Stretch="None"
+                                            AlignmentX="Left"/>
+                </TextBox.Background>
+            </TextBox>
+            <Label x:Name="lblCVV" Content="CVV:" Foreground="White"/>
+            <PasswordBox 
+                x:Name="txtCvcBox" 
+                BorderThickness="0,0,0,2"
+                Padding="20 0 0 0"
+                FontSize="13"
+                Width="202" 
+                Foreground="White"
+                CaretBrush="White"
+                Height="23">
+                <PasswordBox.Background>
+                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-cvv-16.png"
+                                            Stretch="None"
+                                            AlignmentX="Left"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Button 
+                x:Name="btnPagar" 
+                BorderBrush="White"
+                Click="btnPagar_Click"
+                FontWeight="Bold"
+                Content="Pagar"
+                Margin="0 20"
+                Background="#FFEBBF24" 
+                Foreground="White"/>
+        </StackPanel>
+        <Label x:Name="lblAmount" Content="1340" HorizontalAlignment="Left" Margin="210,65,0,0" VerticalAlignment="Top" Foreground="White"/>
+    </Grid>
+</Window>

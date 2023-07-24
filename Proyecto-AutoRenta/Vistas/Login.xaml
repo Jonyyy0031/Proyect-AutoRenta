@@ -5,22 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
-        Title="Login" Height="550" Width="800"
-        WindowStyle="None"
-        ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        Background="Transparent"
-        AllowsTransparency="True"
-        MouseDown="Window_MouseDown">
-
+        Title="Login" Height="450" Width="800">
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\6hkkleubbd931.jpg"
+            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\6hkkleubbd931.jpg"
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
             Opacity="0.95">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF060531"/>
+                    <GradientStop Color="#FF1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -28,12 +27,6 @@
                     <GradientStop Color="#8A16C1" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -118,7 +111,7 @@
                             Grid.Row="1"
                             Orientation="Vertical"
                             Margin="0,35,0,0">
-                    <Image Source="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\coche.png"
+                    <Image Source="\Images\coche.png"
                            Width="100" Height="100"/>
                     <TextBlock Text="AutoRenta"
                                Foreground="White"
@@ -153,7 +146,7 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <TextBox.Background>
-                            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\user-icon.png"
+                            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\user-icon.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>
@@ -177,22 +170,24 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="C:\Users\jaxel\OneDrive\Desktop\Codigos\Proyecto-AutoRenta\.git\Proyecto-AutoRenta\Proyecto-AutoRenta\Proyecto-AutoRenta\Images\key-icon.png"
+                            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\key-icon.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>
                     </PasswordBox>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,15,0,0"/>
                     <Button x:Name="btnLogin"                          
                             BorderThickness="0"
                             Content="LOG IN"
                             Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
-                            Cursor="Hand"                           
-                            Margin="0,50,0,0"
+                            Cursor="Hand"
                             Click="btnLogin_Click">
                         <Button.Style>
-                            <Style TargetType="Button">
+                            <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="#462AD8"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
@@ -202,7 +197,7 @@
                             </Style>
                         </Button.Style>
                         <Button.Template>
-                            <ControlTemplate TargetType="Button">
+                            <ControlTemplate TargetType="{x:Type Button}">
                                 <Border Width="150" Height="40"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
@@ -212,9 +207,6 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,15,0,0"/>
                 </StackPanel>
             </Grid>
         </Border>

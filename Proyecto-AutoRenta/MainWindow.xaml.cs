@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Proyecto_AutoRenta.Entities;
+using Proyecto_AutoRenta.Services;
+using Proyecto_AutoRenta.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +26,6 @@ namespace Proyecto_AutoRenta
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }
