@@ -115,7 +115,6 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-
                 <Button x:Name="BtnGoUsuarios" BorderThickness="0"  Margin="68,79,598,309" Grid.Row="1" Click="BtnGoUsuarios_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">

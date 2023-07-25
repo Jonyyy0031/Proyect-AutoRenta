@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -10,13 +10,16 @@
 
   <ItemGroup>
     <None Remove="Images\6hkkleubbd931.jpg" />
+    <None Remove="Images\administracion.png" />
     <None Remove="Images\back-image.jpg" />
     <None Remove="Images\candado.png" />
+    <None Remove="Images\carro-deportivo.png" />
     <None Remove="Images\cars %281%29.png" />
     <None Remove="Images\cerrar-sesion.png" />
     <None Remove="Images\coche.png" />
     <None Remove="Images\coche2.png" />
     <None Remove="Images\coche_INVENTARIO.png" />
+    <None Remove="Images\correo.png" />
     <None Remove="Images\engranaje.png" />
     <None Remove="Images\flecha-izquierda.png" />
     <None Remove="Images\flota.png" />
@@ -31,18 +34,21 @@
     <None Remove="Images\moneda.png" />
     <None Remove="Images\pase-de-prensa.png" />
     <None Remove="Images\reserva.png" />
-    <None Remove="Images\tarjeta-de-identificacion %281%29.png" />
+    <None Remove="Images\telefono.png" />
     <None Remove="Images\user-icon.png" />
+    <None Remove="Images\user2.png" />
     <None Remove="Images\usuario.png" />
   </ItemGroup>
 
   <ItemGroup>
+
     <Resource Include="Images\flecha-izquierda.png" />
     <Resource Include="Images\pase-de-prensa.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\engranaje.png" />
+    <Resource Include="Images\flecha-izquierda.png" />
     <Resource Include="Images\flota.png" />
     <Resource Include="Images\gestion-de-equipos.png" />
   </ItemGroup>
@@ -75,6 +81,7 @@
     <Resource Include="Images\reserva.png" />
     <Resource Include="Images\tarjeta-de-identificacion (1).png" />
     <Resource Include="Images\user-icon.png" />
+    <Resource Include="Images\user2.png" />
   </ItemGroup>
 
 </Project>

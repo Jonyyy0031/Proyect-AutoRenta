@@ -15,11 +15,18 @@ namespace Proyecto_AutoRenta.Entities
         public string  Nombre { get; set; }
         public string  Correo { get; set; }
         public string Telefono { get; set;}
+        public DateTime FechaSalida { get; set; }
+        public DateTime FechaRegreso { get; set; }
 
         [ForeignKey("Vehiculos")]
-        public int? FkVehiculos { get; set; }
+        public int FkVehiculos { get; set; }
         public Vehiculos Vehiculos { get; set; }
-       
+
+        [ForeignKey("Usuario")]
+        public int FkUsuario { get; set; }
+        public Usuario Usuario { get; set; }
+
+
 
 
     }
