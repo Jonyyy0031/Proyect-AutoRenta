@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -32,6 +32,7 @@
     <None Remove="Images\logo.png" />
     <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
+    <None Remove="Images\pase-de-prensa.png" />
     <None Remove="Images\reserva.png" />
     <None Remove="Images\telefono.png" />
     <None Remove="Images\user-icon.png" />
@@ -40,9 +41,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\administracion.png" />
-    <Resource Include="Images\carro-deportivo.png" />
-    <Resource Include="Images\correo.png" />
+
+    <Resource Include="Images\flecha-izquierda.png" />
+    <Resource Include="Images\pase-de-prensa.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\engranaje.png" />
     <Resource Include="Images\flecha-izquierda.png" />
     <Resource Include="Images\flota.png" />
@@ -75,7 +79,7 @@
     <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
     <Resource Include="Images\reserva.png" />
-    <Resource Include="Images\telefono.png" />
+    <Resource Include="Images\tarjeta-de-identificacion (1).png" />
     <Resource Include="Images\user-icon.png" />
     <Resource Include="Images\user2.png" />
   </ItemGroup>

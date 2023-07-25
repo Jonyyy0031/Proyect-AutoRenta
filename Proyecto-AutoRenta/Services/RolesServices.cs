@@ -10,9 +10,9 @@ using System.Windows;
 
 namespace Proyecto_AutoRenta.Services
 {
-    public class UsuarioServices
+    public class RolesServices
     {
-        public void AddUser(Usuario request)
+        public void AddRol(Rol request)
         {
             try
             {
@@ -20,13 +20,9 @@ namespace Proyecto_AutoRenta.Services
                 {
                     using (var _context = new ApplicationDbContext())
                     {
-                        Usuario res = new Usuario();
+                        Rol res = new Rol();
                         res.Nombre = request.Nombre;
-                        res.UserName = request.UserName;
-                        res.Password = request.Password;
-                        res.FkRol = request.FkRol;
-
-                        _context.Usuarios.Add(res);
+                        _context.Roles.Add(res);
                         _context.SaveChanges();
                     }
                 }
@@ -39,23 +35,23 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public void DeleteUser(int id)
+        public void DeleteRol(int id)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    Usuario usuario = _context.Usuarios.Find(id);
+                    Rol rol = _context.Roles.Find(id);
 
-                    if (usuario != null)
+                    if (rol != null)
                     {
-                        _context.Entry(usuario).State = EntityState.Deleted;
+                        _context.Entry(rol).State = EntityState.Deleted;
                         _context.SaveChanges();
-                        MessageBox.Show("El usuario ha sido eliminado correctamente.");
+                        MessageBox.Show("El rol ha sido eliminado correctamente.");
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró ningún usuario con el ID especificado.");
+                        MessageBox.Show("No se encontró ningún rol con el ID especificado.");
                     }
                 }
 
@@ -66,22 +62,22 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public List<Usuario> GetUsuarios()
+        public List<Rol> GetRoles()
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Usuario> usuarios = _context.Usuarios.Include(x => x.Roles).ToList();
+                    List<Rol> roles = _context.Roles.ToList();
 
-                    if (usuarios.Count > 0)
+                    if (roles.Count > 0)
                     {
 
-                        return usuarios;
+                        return roles;
 
                     }
 
-                    return usuarios;
+                    return roles;
                 }
 
             }
@@ -91,19 +87,17 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public void UpdateUser(Usuario request)
+        public void UpdateRol(Rol request)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    Usuario usuario = new Usuario();
-                    usuario = _context.Usuarios.Find(request.PkUsuario);
-                    usuario.Nombre = request.Nombre;
-                    usuario.UserName = request.UserName;
-                    usuario.Password = request.Password;
+                    Rol rol = new Rol();
+                    rol = _context.Roles.Find(request.PkRol);
+                    rol.Nombre = request.Nombre;
                     //_context.Update(usuario);
-                    _context.Entry(usuario).State = EntityState.Modified;
+                    _context.Entry(rol).State = EntityState.Modified;
                     _context.SaveChanges();
                 }
             }
@@ -114,7 +108,7 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public List<Rol> GetRoles()
+        /*public List<Rol> GetRoles()
         {
             try
             {
@@ -129,6 +123,8 @@ namespace Proyecto_AutoRenta.Services
 
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
+
         }
+        */
     }
 }
