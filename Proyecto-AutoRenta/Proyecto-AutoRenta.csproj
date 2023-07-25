@@ -10,14 +10,18 @@
 
   <ItemGroup>
     <None Remove="Images\6hkkleubbd931.jpg" />
+    <None Remove="Images\administracion.png" />
     <None Remove="Images\back-image.jpg" />
     <None Remove="Images\candado.png" />
+    <None Remove="Images\carro-deportivo.png" />
     <None Remove="Images\cars %281%29.png" />
     <None Remove="Images\cerrar-sesion.png" />
     <None Remove="Images\coche.png" />
     <None Remove="Images\coche2.png" />
     <None Remove="Images\coche_INVENTARIO.png" />
+    <None Remove="Images\correo.png" />
     <None Remove="Images\engranaje.png" />
+    <None Remove="Images\flecha-izquierda.png" />
     <None Remove="Images\flota.png" />
     <None Remove="Images\fondo_inventario.png" />
     <None Remove="Images\gerente-de-proyecto.png" />
@@ -29,12 +33,18 @@
     <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
     <None Remove="Images\reserva.png" />
+    <None Remove="Images\telefono.png" />
     <None Remove="Images\user-icon.png" />
+    <None Remove="Images\user2.png" />
     <None Remove="Images\usuario.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\administracion.png" />
+    <Resource Include="Images\carro-deportivo.png" />
+    <Resource Include="Images\correo.png" />
     <Resource Include="Images\engranaje.png" />
+    <Resource Include="Images\flecha-izquierda.png" />
     <Resource Include="Images\flota.png" />
     <Resource Include="Images\gestion-de-equipos.png" />
   </ItemGroup>
@@ -65,7 +75,9 @@
     <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
     <Resource Include="Images\reserva.png" />
+    <Resource Include="Images\telefono.png" />
     <Resource Include="Images\user-icon.png" />
+    <Resource Include="Images\user2.png" />
   </ItemGroup>
 
 </Project>

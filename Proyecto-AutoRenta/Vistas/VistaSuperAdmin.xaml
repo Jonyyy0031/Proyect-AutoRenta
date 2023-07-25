@@ -117,10 +117,10 @@
                
                 <Label Content="Usuarios" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="114,212,0,0" Grid.Row="1"/>
                 <Image HorizontalAlignment="Left" Height="128" Margin="104,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/engranaje.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="541,297,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/flota.png"/>
+                <Image HorizontalAlignment="Left" Height="128" Margin="541,297,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/flota.png" MouseLeftButtonDown="Image_MouseLeftButtonDownnn"/>
                 <Image HorizontalAlignment="Left" Height="128" Margin="351,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/gestion-de-equipos.png"/>
                 <Image HorizontalAlignment="Left" Height="128" Margin="158,297,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/metodo-de-pago.png"/>
-                <Image HorizontalAlignment="Left" Height="128" Margin="605,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/reserva.png" RenderTransformOrigin="0.69,0.536" />
+                <Image HorizontalAlignment="Left" Height="128" Margin="605,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Source="/Images/reserva.png" RenderTransformOrigin="0.69,0.536" MouseLeftButtonDown="Image_MouseLeftButtonDownn"/>
                 <Label Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="380,212,0,0" Grid.Row="1"/>
                 <Label Content="Reservas" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="615,212,0,0" Grid.Row="1"/>
                 <Label Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="183,425,0,0" Grid.Row="1"/>
