@@ -81,19 +81,5 @@ namespace Proyecto_AutoRenta.Vistas
             this.Close();
             StartLogin.Show();
         }
-
-        private void Image_MouseLeftButtonDownn(object sender, MouseButtonEventArgs e)
-        {
-            Reserva iniciar = new Reserva();
-            this .Close();  
-            iniciar.Show();
-
-        }
-        private void Image_MouseLeftButtonDownnn(object sender, MouseButtonEventArgs e)
-        {
-            Inventario inventario = new Inventario();
-            this .Close();
-            inventario .Show();
-        }
     }
 }

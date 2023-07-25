@@ -3,7 +3,6 @@ using Proyecto_AutoRenta.Context;
 using Proyecto_AutoRenta.Entities;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +22,11 @@ namespace Proyecto_AutoRenta.Services
                     using (var _context = new ApplicationDbContext())
                     {
                         Reserve res = new Reserve();
-
                         res.Nombre = request.Nombre;
                         res.Correo = request.Correo;
-                        res.Telefono = request.Telefono;                 
+                        res.Telefono = request.Telefono;
                         res.FkVehiculos = request.FkVehiculos;
-                        res.FkUsuario = request.FkUsuario;
-                        res.FechaSalida = request.FechaSalida;
-                        res.FechaRegreso = request.FechaRegreso;
+
                         _context.Reservas.Add(res);
                         _context.SaveChanges();
                     }
@@ -38,7 +34,7 @@ namespace Proyecto_AutoRenta.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Sucedio un error " + ex.Message, ex);
+                throw new Exception("Sucedio un error" + ex.Message);
             }
         }
 
@@ -49,14 +45,16 @@ namespace Proyecto_AutoRenta.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Reserve> reserve = _context.Reservas
-                        .Include(x => x.Vehiculos)
-                        .Include( x => x.Usuario)
-                        .ThenInclude( usuario => usuario.Roles )
-                        .ToList();
-                                   
-                    return reserve;    
+                    List<Reserve> reserve = _context.Reservas.Include(x => x.Vehiculos).ToList();
+
+                    if (reserve.Count > 0)
+                    {
+                        return reserve;
+                    }
+
+                    return reserve;
                 }
+
             }
             catch (Exception ex)
             {
@@ -64,29 +62,22 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        
-                   
         public void Updatereser(Reserve request)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    Reserve reserva = _context.Reservas.Find(request.PkReserva);
+                    Reserve reserva = new Reserve();
+                    reserva = _context.Reservas.Find(request.PkReserva);
                     reserva.Nombre = request.Nombre;
                     reserva.Correo = request.Correo;
                     reserva.Telefono = request.Telefono;
-                    reserva.FkVehiculos = request.FkVehiculos;
-                    reserva.FkUsuario = request.FkUsuario;
-                    reserva.FechaSalida = request.FechaSalida;
-                    reserva.FechaRegreso = request.FechaRegreso;
-
-                 
-                    
-                    _context.Update(reserva);
-
+                    reserva.Vehiculos = request.Vehiculos;
+                   
+                    //_context.Update(usuario);
+                    _context.Entry(reserva).State = EntityState.Modified;
                     _context.SaveChanges();
-
                 }
             }
             catch (Exception ex)
@@ -131,6 +122,7 @@ namespace Proyecto_AutoRenta.Services
                         MessageBox.Show("No se encontró ningún usuario con el ID especificado.");
                     }
                 }
+
             }
             catch (Exception ex)
             {
@@ -138,21 +130,29 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public List<Usuario> GetUsuario()
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            try
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                using (var _context = new ApplicationDbContext())
-                {
-                    List<Usuario> usuarios = _context.Usuarios.ToList();
-                    return usuarios;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("Ocurrio un error " + ex.Message);
+                //DragMove();
+                
             }
         }
+
+        private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            //WindowState = WindowState.Minimized;
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
     }
+
+
+
+
+
 }
