@@ -37,7 +37,7 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Sucedio un error" + ex.Message);
             }
         }
-        public void DeleteUser(int id)
+        public void DeleteVehiculo(int id)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Succedio un error" + ex.Message);
             }
         }
-        public void UpdateUser(Vehiculos request)
+        public void UpdateVehiculo(Vehiculos request)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Sucedio un error: " + ex.Message);
             }
         }
-        public List<Vehiculos> GetUsuarios()
+        public List<Vehiculos> GetVehiculo()
         {
             try
             {

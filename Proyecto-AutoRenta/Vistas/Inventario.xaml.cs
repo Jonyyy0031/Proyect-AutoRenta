@@ -46,7 +46,7 @@ namespace Proyecto_AutoRenta.Vistas
         }
         public void BtnFlechaIzquierda_Click (object sender, RoutedEventArgs e)
         {
-            Login iniciar = new Login();
+            VistaSuperAdmin iniciar = new VistaSuperAdmin();
             iniciar.Show();
             this.Close();
         }
@@ -81,7 +81,7 @@ namespace Proyecto_AutoRenta.Vistas
                 vehiculo.Tipo = SelectTipo.Text;
                 vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                services.UpdateUser(vehiculo);
+                services.UpdateVehiculo(vehiculo);
 
                 MessageBox.Show("¡Datos del vehículos modificados correctamente!");
                 txtPkVehiculo.Clear();
@@ -107,12 +107,12 @@ namespace Proyecto_AutoRenta.Vistas
         {
             vehiculo = (sender as FrameworkElement).DataContext as Vehiculos;
             int ID = int.Parse(vehiculo.PkVehiculo.ToString());
-            services.DeleteUser(ID);
+            services.DeleteVehiculo(ID);
             GetUserTable();
         }
         public void GetUserTable()
         {
-            UserTable.ItemsSource = services.GetUsuarios();
+            UserTable.ItemsSource = services.GetVehiculo();
         }
     }
 }

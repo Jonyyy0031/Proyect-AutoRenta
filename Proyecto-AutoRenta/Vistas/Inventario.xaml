@@ -192,14 +192,14 @@
                         <DataGridTemplateColumn Header="Editar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Edit" />
+                                    <Button Content="Edit" Click="EditItem" Background= "Aquamarine"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="Borrar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delete"/>
+                                    <Button Content="Delete" Click="DeleteItem" Background= "Red"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -263,6 +263,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"/>
             </Grid>
         </Border>
 

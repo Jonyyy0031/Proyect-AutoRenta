@@ -176,7 +176,7 @@ namespace Proyecto_AutoRenta.Vistas
         }
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            VistaSuperAdmin login = new VistaSuperAdmin();
             login.Show();
             this.Close();
         }
