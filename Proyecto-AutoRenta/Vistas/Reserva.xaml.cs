@@ -1,7 +1,10 @@
-﻿using Proyecto_AutoRenta.Entities;
+﻿
+using Google.Protobuf.WellKnownTypes;
+using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace Proyecto_AutoRenta.Vistas
 {
     /// <summary>
@@ -27,47 +29,79 @@ namespace Proyecto_AutoRenta.Vistas
             InitializeComponent();
             GetrenTable();
             GetVehiculos();
+            GetUser();
+
         }
 
         Reserve reserve = new Reserve();
         ReservaServices services = new ReservaServices();
-        
+
         private void btnReserva_Click(object sender, RoutedEventArgs e)
         {
+            DateTime fechaSalida = datePickerSalida.SelectedDate.HasValue ? datePickerSalida.SelectedDate.Value : DateTime.MinValue;
+            DateTime fechaRegreso = datePickerRegreso.SelectedDate.HasValue ? datePickerRegreso.SelectedDate.Value : DateTime.MinValue;
             int ID;
             if (int.TryParse(txtPkReserva_.Text, out ID))
             {
+
                 Reserve reserve = new Reserve();
+
 
                 reserve.PkReserva = ID;
                 reserve.Nombre = txtNombre.Text;
                 reserve.Correo = txtCorreo.Text;
                 reserve.Telefono = txtTelefono.Text;
+                reserve.FechaSalida = fechaSalida;
+                reserve.FechaRegreso = fechaRegreso;
+
+                Vehiculos seleccionado = SelectVehiculo.SelectedItem as Vehiculos;
+                reserve.FkVehiculos = seleccionado.PkVehiculo;
+
+                Usuario seleccionadoo = SelectUser.SelectedItem as Usuario;
+                reserve.FkUsuario = seleccionadoo.PkUsuario;
+
+
                 services.Updatereser(reserve);
+
+                txtPkReserva_.Clear();
+                txtCorreo.Clear();
+                txtTelefono.Clear();
+                datePickerSalida.SelectedDate = null;
+                datePickerRegreso.SelectedDate = null;
+
+                MessageBox.Show("Reserva Actualizado");
+                GetrenTable();
+                GetVehiculos();
+                GetUser();
+
+            }
+            else
+            {
+
+                Reserve reserve = new Reserve();
+                reserve.Nombre = txtNombre.Text;
+                reserve.Correo = txtCorreo.Text;
+                reserve.Telefono = txtTelefono.Text;
+                reserve.FkVehiculos = int.Parse(SelectVehiculo.SelectedValue.ToString());
+                reserve.FkUsuario = int.Parse(SelectUser.SelectedValue.ToString());
+                reserve.FechaSalida = fechaSalida;
+                reserve.FechaRegreso = fechaRegreso;
+
+                services.Addreser(reserve);
                 txtPkReserva_.Clear();
                 txtNombre.Clear();
                 txtCorreo.Clear();
                 txtTelefono.Clear();
-                MessageBox.Show("Usuario actualizado");
-                GetrenTable();
-                GetVehiculos();
-            }
-            else
-            {
-                reserve.Nombre = txtNombre.Text;
-                reserve.Correo = txtCorreo.Text;
-                reserve.Telefono = txtTelefono.Text;            
-                reserve.FkVehiculos= int.Parse(SelectVehiculo.SelectedValue.ToString());
-                services.Addreser(reserve);
-
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtTelefono.Clear();
+                datePickerSalida.SelectedDate = null;
+                datePickerRegreso.SelectedDate = null;
                 MessageBox.Show("SE AGREGÓ CORRECTAMENTE");
                 GetrenTable();
                 GetVehiculos();
+                GetUser();
+
             }
         }
+
 
         private void DeleteItem(object sender, RoutedEventArgs e)
         {
@@ -75,19 +109,34 @@ namespace Proyecto_AutoRenta.Vistas
             reserve = (sender as FrameworkElement).DataContext as Reserve;
             int ID = int.Parse(reserve.PkReserva.ToString());
             services.Deletereser(ID);
+
+            txtPkReserva_.Clear();
+            txtNombre.Clear();
+            txtCorreo.Clear();
+            txtTelefono.Clear();
+            datePickerSalida.SelectedDate = null;
+            datePickerRegreso.SelectedDate = null;
             GetrenTable();
             GetVehiculos();
+            GetUser();
+
         }
 
         private void EditItem(object sender, RoutedEventArgs e)
         {
+
+
             Reserve reserve = new Reserve();
             reserve = (sender as FrameworkElement).DataContext as Reserve;
 
             txtPkReserva_.Text = reserve.PkReserva.ToString();
             txtNombre.Text = reserve.Nombre.ToString();
             txtCorreo.Text = reserve.Correo.ToString();
-            txtTelefono.Text = reserve.Telefono.ToString();   
+            txtTelefono.Text = reserve.Telefono.ToString();
+            datePickerSalida.SelectedDate = reserve.FechaSalida;
+            datePickerRegreso.SelectedDate = reserve.FechaRegreso;
+
+
         }
 
         public void GetrenTable()
@@ -95,11 +144,19 @@ namespace Proyecto_AutoRenta.Vistas
             UserTable.ItemsSource = services.GetReserva();
         }
 
+
         public void GetVehiculos()
         {
             SelectVehiculo.ItemsSource = services.GetVehiculo();
             SelectVehiculo.DisplayMemberPath = "Modelo";
             SelectVehiculo.SelectedValuePath = "PkVehiculo";
+        }
+
+        public void GetUser()
+        {
+            SelectUser.ItemsSource = services.GetUsuario();
+            SelectUser.DisplayMemberPath = "Nombre";
+            SelectUser.SelectedValuePath = "PkUsuario";
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -109,23 +166,24 @@ namespace Proyecto_AutoRenta.Vistas
                 DragMove();
             }
         }
-
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState= WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
-
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-
             login.Show();
             this.Close();
+        }
+
+        private void UserTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
