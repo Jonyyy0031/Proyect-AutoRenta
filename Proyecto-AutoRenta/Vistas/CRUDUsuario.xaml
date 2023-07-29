@@ -46,7 +46,7 @@
                 <Label Content="Usuario" HorizontalAlignment="Left" Height="27" Margin="36,194,0,0" VerticalAlignment="Top" Width="102"/>
                 <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="36,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
                 <Label Content="Password" HorizontalAlignment="Left" Height="26" Margin="37,249,0,0" VerticalAlignment="Top" Width="102"/>
-                <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="24" Margin="37,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
+                <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="24" Margin="37,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" TextChanged="txtPassword_TextChanged"/>
                 <Button x:Name="btnGuardar"                          
                             BorderThickness="0"
                             Content="Guardar"

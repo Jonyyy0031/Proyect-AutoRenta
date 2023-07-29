@@ -1,0 +1,247 @@
+﻿<Window x:Class="Proyecto_AutoRenta.Vistas.CRUDRoles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
+        mc:Ignorable="d"
+        Title="CRUDRoles" Height="600" Width="800">
+    <Border CornerRadius="12">
+        <Border.Background>
+
+            <ImageBrush ImageSource="\Images\6hkkleubbd931.jpg"
+                        Stretch="None"/>
+        </Border.Background>
+        <Border CornerRadius="10"                    
+            BorderThickness="2"
+            Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="USUARIOS"
+                               Foreground="DarkGray"
+                               FontSize="10"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Grid>
+                <Button x:Name="btngoback"                          
+                BorderThickness="0"              
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="10,10,741,470" Grid.Row="1" Click="btngoback_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="28" Height="28"
+                            CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="ID"
+                       x:Name="ID"
+                       HorizontalAlignment="Left" 
+                       Margin="165,52,0,0" 
+                       VerticalAlignment="Top" 
+                       Foreground="White" 
+                       FontWeight="Bold" 
+                       FontSize="18" Grid.Row="1"
+                       Visibility="Collapsed"/>
+                <TextBox x:Name="txtPkRol"  
+                         IsEnabled="False" 
+                         Grid.Row="1"
+                          FontSize="13"
+                         FontWeight="Medium"
+                         FontFamily="Montserrat"                            
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         VerticalContentAlignment="Center"
+                         Margin="111,86,549,402"
+                         Padding="30,0,0,0"
+                          Visibility="Collapsed">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/tarjeta-de-identificacion (1).png"
+
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+
+                <Label Content="Nombre" 
+                       HorizontalAlignment="Left" 
+                       Margin="340,52,0,0" 
+                       Grid.Row="1" 
+                       VerticalAlignment="Top" 
+                       Foreground="White" 
+                       FontWeight="Bold" 
+                       FontSize="18" Width="80"/>
+                <TextBox x:Name="txtNombre" 
+                         FontSize="13"
+                         FontWeight="Medium"
+                         FontFamily="Montserrat"                            
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         VerticalContentAlignment="Center"
+                         Margin="312,86,348,402"
+                         Padding="25,0,0,0"
+                         Grid.Row="1">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/pase-de-prensa.png"
+
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+
+                <Button x:Name="btnAdd"
+                    Content="Añadir"
+                    HorizontalAlignment="Center"
+                      Margin="0,483,0,0"
+                     Grid.Row="1"
+                     VerticalAlignment="Top"
+                     Height="35"
+                     Width="124"
+                     Style="{StaticResource RoundButtonTemplate}"
+                     Click="BtnAdd_Click" FontWeight="Bold" FontSize="20" Background="#FF1E42FF"/>
+
+                <DataGrid x:Name="RolTable" 
+                          AutoGenerateColumns="False" 
+                          CanUserAddRows="False" 
+                          IsReadOnly="True" 
+                          ColumnWidth="*" 
+                          IsSynchronizedWithCurrentItem="True" 
+                          Margin="24,152,24,72" 
+                          Grid.Row="1">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding PkRol}" />
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+
+                        <DataGridTemplateColumn Header="Editar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditItem"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Delete">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Click="DeleteItem"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

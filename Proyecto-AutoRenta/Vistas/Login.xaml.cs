@@ -24,9 +24,21 @@ namespace Proyecto_AutoRenta.Vistas
         public Login()
         {
             InitializeComponent();
+            txtPassword.PreviewKeyDown += TxtPassword_PreviewKeyDown;
         }
-        CRUDUsuario iniciar = new CRUDUsuario();
-        Pago Pago = new Pago();
+        CRUDUsuario iniciarCU = new CRUDUsuario();
+
+        private void TxtPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Enter)
+            {
+
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        Reserva iniciarR = new Reserva();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -62,11 +74,12 @@ namespace Proyecto_AutoRenta.Vistas
                 string rol = usuario.Roles.Nombre;
                 switch (rol)
                 {
-                    
-                    case "Super Admin":
+                    case "SuperAdmin":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
-                        Pago.Show();
+                        VistaSuperAdmin iniciar = new VistaSuperAdmin();
+                        iniciar.Show();
+
                         break;
                     case "Usuario":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -98,5 +111,6 @@ namespace Proyecto_AutoRenta.Vistas
 
             return usuario;
         }
+
     }
 }

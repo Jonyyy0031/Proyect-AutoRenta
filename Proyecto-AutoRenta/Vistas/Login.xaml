@@ -8,18 +8,13 @@
         Title="Login" Height="450" Width="800">
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\6hkkleubbd931.jpg"
+
+            <ImageBrush ImageSource="\Images\6hkkleubbd931.jpg"
                         Stretch="None"/>
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
             Opacity="0.95">
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF060531"/>
-                    <GradientStop Color="#FF1B1448" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -27,7 +22,14 @@
                     <GradientStop Color="#8A16C1" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <Grid>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
@@ -111,7 +113,8 @@
                             Grid.Row="1"
                             Orientation="Vertical"
                             Margin="0,35,0,0">
-                    <Image Source="\Images\coche.png"
+                    <Image Source="/Images/coche.png"
+
                            Width="100" Height="100"/>
                     <TextBlock Text="AutoRenta"
                                Foreground="White"
@@ -146,7 +149,8 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <TextBox.Background>
-                            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\user-icon.png"
+                            <ImageBrush ImageSource="/Images/user-icon.png"
+
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>
@@ -170,14 +174,12 @@
                              Margin="0,5,0,0"
                              Padding="20,0,0,0">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\key-icon.png"
+                            <ImageBrush ImageSource="/Images/key-icon.png"
+
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>
                     </PasswordBox>
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,15,0,0"/>
                     <Button x:Name="btnLogin"                          
                             BorderThickness="0"
                             Content="LOG IN"
@@ -207,9 +209,14 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,15,0,0"/>
                 </StackPanel>
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Border>
 
     </Border>
+
 </Window>

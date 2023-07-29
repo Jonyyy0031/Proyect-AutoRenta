@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
         Title="Pago" Height="450" Width="800">
-    <Grid HorizontalAlignment="Center">
+    <Grid HorizontalAlignment="Center" Width="800">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" MinWidth="800"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,18 +17,17 @@
         </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="#FF1B1448" Offset="1"/>
+                <GradientStop Color="#FFD2D2D2" Offset="0"/>
+                <GradientStop Color="#FF170876" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel
-            Orientation="Vertical"
-            Margin="578,0,15,0" 
-            Height="414" 
-            VerticalAlignment="Center">
-            <Label Content="Metodo de Pago:" Foreground="White"/>
-            <ComboBox x:Name="comboBoxPaymentMetodo" Width="202"/>
-            <Label x:Name="lblTarjeta" Content="Numero tarjeta:" Foreground="White"/>
+            x:Name="Tarjetas"
+            Margin="498,93,100,0" 
+            Height="308"
+            Visibility="Collapsed"
+            VerticalAlignment="Top" Grid.Row="1">
+            <Label x:Name="lblTarjeta" Content="Numero tarjeta:" Foreground="White" FontSize="20"/>
             <TextBox 
                 x:Name="txtCardNumberBox"
                 BorderThickness="0,0,0,2"
@@ -46,7 +45,7 @@
                                             AlignmentX="Left"/>
                 </TextBox.Background>
             </TextBox>
-            <Label Content="Expiración año (YYYY):" Foreground="White"/>
+            <Label Content="Expiración año (YYYY):" Foreground="White" FontSize="20"/>
             <TextBox 
                 x:Name="txtYearBox" 
                 BorderThickness="0,0,0,2"
@@ -63,7 +62,7 @@
                                             AlignmentX="Left"/>
                 </TextBox.Background>
             </TextBox>
-            <Label Content="Expiración mes (mm):" Foreground="White"/>
+            <Label Content="Expiración mes (mm):" Foreground="White" FontSize="20"/>
             <TextBox 
                 x:Name="txtMonthBox" 
                 BorderThickness="0,0,0,2"
@@ -80,7 +79,7 @@
                                             AlignmentX="Left"/>
                 </TextBox.Background>
             </TextBox>
-            <Label x:Name="lblCVV" Content="CVV:" Foreground="White"/>
+            <Label x:Name="lblCVV" Content="CVV:" Foreground="White" FontSize="20"/>
             <PasswordBox 
                 x:Name="txtCvcBox" 
                 BorderThickness="0,0,0,2"
@@ -104,8 +103,106 @@
                 Content="Pagar"
                 Margin="0 20"
                 Background="#FFEBBF24" 
-                Foreground="White"/>
+                Foreground="White" FontSize="20"/>
         </StackPanel>
-        <Label x:Name="lblAmount" Content="1340" HorizontalAlignment="Left" Margin="210,65,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Grid HorizontalAlignment="Left" Height="370" Margin="10,0,0,0" VerticalAlignment="Center" Width="390" Grid.Row="1">
+            <Label x:Name="lblRecibeAmount" Content="1340" HorizontalAlignment="Left" Margin="148,334,0,0" VerticalAlignment="Top" Foreground="White" Height="37" Width="102" FontSize="20"/>
+            <TextBox x:Name="txtRecibeReserva"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="0,0,282,342"
+                IsEnabled="False"
+                Padding="20,0,0,0" Background="{x:Null}"/>
+            <Label Content="Nombre:" HorizontalAlignment="Left" Height="32" Margin="0,28,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <TextBox x:Name="txtRecibeNombre"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="10,61,128,281"
+                Padding="20,0,0,0" Background="{x:Null}" Width="250"/>
+            <Label Content="Correo:" HorizontalAlignment="Left" Height="32" Margin="0,94,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <TextBox x:Name="txtRecibeCorreo"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="10,126,128,216"
+                Padding="20,0,0,0" Background="{x:Null}" Width="250"/>
+            <Label Content="Telefono:" HorizontalAlignment="Left" Height="32" Margin="0,154,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <TextBox x:Name="txtRecibeDias"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="10,246,128,96"
+                Padding="20,0,0,0" Background="{x:Null}" Width="250"/>
+            <Label Content="Dias:" HorizontalAlignment="Left" Height="32" Margin="0,214,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <TextBox x:Name="txtRecibeTelefono"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="10,186,128,156"
+                Padding="20,0,0,0" Background="{x:Null}" Width="250"/>
+            <Label Content="Vehiculo:" HorizontalAlignment="Left" Height="32" Margin="0,274,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <TextBox x:Name="txtRecibeVehiculo"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Margin="10,306,128,36"
+                Padding="20,0,0,0" Background="{x:Null}" Width="250"/>
+            <Label Content="Total:" HorizontalAlignment="Left" Height="32" Margin="0,334,0,0" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+            <Label x:Name="lblSigno" Content="$" Margin="102,334,0,0" VerticalAlignment="Top" Foreground="White" Height="37" Width="41" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        </Grid>
+        <StackPanel 
+            x:Name="Efectivo"
+            Margin="512,180,117,0" 
+            Height="32"
+            Visibility="Collapsed"
+            VerticalAlignment="Top" Grid.Row="1"
+            >
+            <Button Content="Reservar" Height="37" Width="126" Click="Efectivo_Click"/>
+        </StackPanel>
+        <Label Foreground="White" Content="Metodo de Pago:" HorizontalAlignment="Left" Margin="519,13,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="20" Height="37" Width="162"/>
+        <ComboBox 
+            x:Name="comboBoxPaymentMetodo" 
+            Margin="498,50,100,341" 
+            Grid.Row="1" 
+            SelectedIndex="0"
+            SelectionChanged="ComboBoxPaymentMetodo_SelectionChanged"/>
     </Grid>
 </Window>
