@@ -77,8 +77,7 @@ namespace Proyecto_AutoRenta.Vistas
             }
             else
             {
-
-                Reserve reserve = new Reserve();
+                Pago pago = new Pago();
                 reserve.Nombre = txtNombre.Text;
                 reserve.Correo = txtCorreo.Text;
                 reserve.Telefono = txtTelefono.Text;
@@ -86,18 +85,25 @@ namespace Proyecto_AutoRenta.Vistas
                 reserve.FkUsuario = int.Parse(SelectUser.SelectedValue.ToString());
                 reserve.FechaSalida = fechaSalida;
                 reserve.FechaRegreso = fechaRegreso;
+                pago.Reserva(reserve);
 
-                services.Addreser(reserve);
-                txtPkReserva_.Clear();
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtTelefono.Clear();
-                datePickerSalida.SelectedDate = null;
-                datePickerRegreso.SelectedDate = null;
-                MessageBox.Show("SE AGREGÓ CORRECTAMENTE");
-                GetrenTable();
-                GetVehiculos();
-                GetUser();
+                bool? dialogResult = pago.ShowDialog();
+                if (dialogResult == true)
+                {
+                    MessageBox.Show("Reserva agregada");
+                    GetrenTable();
+                    GetVehiculos();
+
+                    txtNombre.Clear();
+                    txtCorreo.Clear();
+                    txtTelefono.Clear();
+                    SelectVehiculo.SelectedValue = null;
+                    SelectUser.SelectedValue = null;
+                }
+                else
+                {
+                    MessageBox.Show("Fallo al agregar la reserva");
+                }
 
             }
         }

@@ -72,7 +72,9 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void BtnGoPagos_Click(object sender, RoutedEventArgs e)
         {
-
+            Reporte StartREPORTE = new Reporte();
+            this.Close();
+            StartREPORTE.Show();
         }
 
         private void btngoback_Click(object sender, RoutedEventArgs e)

@@ -12,7 +12,7 @@ namespace Proyecto_AutoRenta.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySQL("Server= localhost; database= ProyectoAutoRenta23BM; user=root");
+            options.UseMySQL("Server=localhost; database=AutoRentaLive; user=root; password=;");
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -45,7 +45,7 @@ namespace Proyecto_AutoRenta.Context
                 new Vehiculos
                 {
                     PkVehiculo = 1,
-                    Modelo = "2023223",
+                    Modelo = "2023",
                     Tipo = "Deportivo",
                     Tarifa = 123,
                 }

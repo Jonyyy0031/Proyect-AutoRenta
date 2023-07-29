@@ -17,6 +17,7 @@ namespace Proyecto_AutoRenta.Entities
         public string Telefono { get; set; }
         public DateTime FechaSalida { get; set; }
         public DateTime FechaRegreso { get; set; }
+        public double Total { get; set; }
 
         [ForeignKey("Vehiculos")]
         public int FkVehiculos { get; set; }

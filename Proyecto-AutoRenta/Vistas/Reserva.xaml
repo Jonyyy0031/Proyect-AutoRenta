@@ -115,7 +115,7 @@
                           IsReadOnly="True" 
                           ColumnWidth="*" 
                           IsSynchronizedWithCurrentItem="True" 
-                                                    Margin="5,225,5,1" Grid.Row="1" SelectionChanged="UserTable_SelectionChanged" >
+                                                    Margin="10,225,10,1" Grid.Row="1" SelectionChanged="UserTable_SelectionChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
@@ -125,6 +125,7 @@
                     <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
                     <DataGridTextColumn Header="Fecha Salida" Binding="{Binding  FechaSalida}" />
                     <DataGridTextColumn Header="Fecha Entrega" Binding="{Binding FechaRegreso}" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" />
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>

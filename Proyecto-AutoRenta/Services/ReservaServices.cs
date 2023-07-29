@@ -30,6 +30,7 @@ namespace Proyecto_AutoRenta.Services
                         res.FkUsuario = request.FkUsuario;
                         res.FechaSalida = request.FechaSalida;
                         res.FechaRegreso = request.FechaRegreso;
+                        res.Total = request.Total;
                         _context.Reservas.Add(res);
                         _context.SaveChanges();
                     }
@@ -79,7 +80,7 @@ namespace Proyecto_AutoRenta.Services
                     reserva.FkUsuario = request.FkUsuario;
                     reserva.FechaSalida = request.FechaSalida;
                     reserva.FechaRegreso = request.FechaRegreso;
-
+                    reserva.Total = request.Total;
 
 
                     _context.Update(reserva);
