@@ -43,7 +43,13 @@ namespace Proyecto_AutoRenta.Vistas
 
         DateTime f1;
         DateTime f2;
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
         public void Reserva(Reserve reserva)
         {
             ReservaServices services = new ReservaServices();
