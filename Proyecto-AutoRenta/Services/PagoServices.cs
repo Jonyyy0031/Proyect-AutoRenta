@@ -1,4 +1,7 @@
-﻿using Proyecto_AutoRenta.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto_AutoRenta.Context;
+using Proyecto_AutoRenta.Entities;
+using Proyecto_AutoRenta.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +20,15 @@ namespace Proyecto_AutoRenta.Services
                 sumaMonto = _contex.Reservas.Sum(v => v.Total);
                 return sumaMonto;
             }
+        }
+
+        public double UpdatePrice(Vehiculos vehiculo, DateTime fechaS, DateTime FechaV)
+        {
+            TimeSpan diferencia = FechaV - fechaS;
+            int dias = diferencia.Days;
+            double total = vehiculo.Tarifa * dias;
+
+            return total;
         }
     }
 }

@@ -75,13 +75,11 @@ namespace Proyecto_AutoRenta.Services
                     reserva.Nombre = request.Nombre;
                     reserva.Correo = request.Correo;
                     reserva.Telefono = request.Telefono;
-
+                    reserva.Total = request.Total;
                     reserva.FkVehiculos = request.FkVehiculos;
                     reserva.FkUsuario = request.FkUsuario;
                     reserva.FechaSalida = request.FechaSalida;
                     reserva.FechaRegreso = request.FechaRegreso;
-                    reserva.Total = request.Total;
-
 
                     _context.Update(reserva);
 

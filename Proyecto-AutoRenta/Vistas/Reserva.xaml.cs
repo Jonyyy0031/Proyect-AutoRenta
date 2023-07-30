@@ -1,5 +1,6 @@
 ﻿
 using Google.Protobuf.WellKnownTypes;
+using Proyecto_AutoRenta.Context;
 using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
 using System;
@@ -45,7 +46,7 @@ namespace Proyecto_AutoRenta.Vistas
             {
 
                 Reserve reserve = new Reserve();
-
+                PagoServices servicesPayment = new PagoServices();
 
                 reserve.PkReserva = ID;
                 reserve.Nombre = txtNombre.Text;
@@ -60,7 +61,33 @@ namespace Proyecto_AutoRenta.Vistas
                 Usuario seleccionadoo = SelectUser.SelectedItem as Usuario;
                 reserve.FkUsuario = seleccionadoo.PkUsuario;
 
+                double pay = servicesPayment.UpdatePrice(seleccionado, fechaSalida, fechaRegreso);
 
+                double newTotal = pay;
+                using (var _context = new ApplicationDbContext())
+                {
+                    Reserve booking = new Reserve();
+                    booking = _context.Reservas.Find(reserve.PkReserva);
+
+                    if (booking.Total > pay)
+                    {
+                        double Total = booking.Total - pay;
+                        newTotal = booking.Total - Total;
+                        MessageBox.Show($"Al cliente se le adeuda: ${Total}");
+                    }
+                    else if (booking.Total < pay)
+                    {
+                        double Total = pay - booking.Total;
+                        newTotal = Total + booking.Total;
+                        MessageBox.Show($"El cliente debe pagar: ${Total}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("al cliente no se le adeuda nada");
+                    }
+                }
+
+                reserve.Total = newTotal;
                 services.Updatereser(reserve);
 
                 txtPkReserva_.Clear();
