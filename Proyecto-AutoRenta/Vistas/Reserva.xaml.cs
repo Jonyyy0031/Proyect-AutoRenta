@@ -57,6 +57,22 @@ namespace Proyecto_AutoRenta.Vistas
         {
             DateTime fechaSalida = datePickerSalida.SelectedDate.HasValue ? datePickerSalida.SelectedDate.Value : DateTime.MinValue;
             DateTime fechaRegreso = datePickerRegreso.SelectedDate.HasValue ? datePickerRegreso.SelectedDate.Value : DateTime.MinValue;
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                SelectVehiculo.SelectedItem == null || SelectUser.SelectedItem == null || fechaSalida == DateTime.MinValue || fechaRegreso == DateTime.MinValue)
+            {
+                MessageBox.Show("Por favor, completa todos los campos obligatorios.");
+                return;
+            }
+
+            if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today)
+            {
+                MessageBox.Show("Las fechas de salida y regreso no pueden ser anteriores al día de hoy.");
+                return;
+            }
+
+            //DateTime fechaSalida = datePickerSalida.SelectedDate.HasValue ? datePickerSalida.SelectedDate.Value : DateTime.MinValue;
+            //DateTime fechaRegreso = datePickerRegreso.SelectedDate.HasValue ? datePickerRegreso.SelectedDate.Value : DateTime.MinValue;
             int ID;
             if (int.TryParse(txtPkReserva_.Text, out ID))
             {

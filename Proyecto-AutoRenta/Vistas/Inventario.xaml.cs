@@ -61,7 +61,7 @@ namespace Proyecto_AutoRenta.Vistas
         {
             Application.Current.Shutdown();
         }
-        public void BtnFlechaIzquierda_Click (object sender, RoutedEventArgs e)
+        public void BtnFlechaIzquierda_Click(object sender, RoutedEventArgs e)
         {
             Login iniciar = new Login();
             iniciar.Show();
@@ -72,43 +72,70 @@ namespace Proyecto_AutoRenta.Vistas
         Vehiculos vehiculo = new Vehiculos();
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            
 
-            if (txtPkVehiculo.Text == "")
+            if (string.IsNullOrEmpty(txtModelo.Text) || string.IsNullOrEmpty(SelectTipo.Text) || string.IsNullOrEmpty(txtTarifa.Text))
+            {
+                MessageBox.Show("POR FAVOR, COMPLETE TODOS LOS CAMPOS");
+            }
+            else if (txtPkVehiculo.Text == "")
             {
                 vehiculo.Modelo = txtModelo.Text;
                 vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                services.AddVehiculo(vehiculo);
+                //Validar la etrada del campo tarifa
+                if (double.TryParse(txtTarifa.Text, out double tarifa))
+                {
+                    vehiculo.Tarifa = tarifa;
+                    services.AddVehiculo(vehiculo);
+                    //vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
+                    txtModelo.Clear();
+                    SelectTipo.SelectedIndex = -1;
+                    txtTarifa.Clear();
 
-                MessageBox.Show("SE AGREGÓ EL VEHÍCULO CORRECTAMENTE");
-                GetUserTable();
+                    MessageBox.Show("SE AGREGÓ EL VEHÍCULO CORRECTAMENTE");
+                    GetUserTable();
+                }
+                else
+                {
+                    MessageBox.Show("INGRESE UNA TARIFA VALIDA");
+                }
             }
-
-            else if (txtPkVehiculo.Text != "")
+            else
             {
-                int id = int.Parse(txtPkVehiculo.Text);
-                vehiculo.PkVehiculo = id;
-                vehiculo.Modelo = txtModelo.Text;
-                vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
+                if (int.TryParse(txtPkVehiculo.Text, out int ID))
+                {
+                    //int id = int.Parse(txtPkVehiculo.Text);
+                    vehiculo.PkVehiculo = ID;
+                    vehiculo.Modelo = txtModelo.Text;
+                    vehiculo.Tipo = SelectTipo.Text;
+                    //vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                services.UpdateUser(vehiculo);
+                    //Validar la entrada al capo tarifa
+                    if (double.TryParse(txtTarifa.Text, out double tarifa))
+                    {
+                        vehiculo.Tarifa = tarifa;
 
-                MessageBox.Show("¡Datos del vehículos modificados correctamente!");
-                txtPkVehiculo.Clear();
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
+                        services.UpdateUser(vehiculo);
 
-                GetUserTable();
+                        MessageBox.Show("¡Datos del vehículos modificados correctamente!");
+                        txtPkVehiculo.Clear();
+                        txtModelo.Clear();
+                        SelectTipo.SelectedIndex = -1;
+                        txtTarifa.Clear();
+
+                        GetUserTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("NGRESE UNA TARIFA VALIDA");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("INGRESE UNA ID VALIDA");
+                }
             }
-
         }
         private void EditItem(object sender, RoutedEventArgs e)
         {
