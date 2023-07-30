@@ -122,7 +122,7 @@ namespace Proyecto_AutoRenta.Vistas
                 datePickerSalida.SelectedDate = null;
                 datePickerRegreso.SelectedDate = null;
 
-                MessageBox.Show("Reserva Actualizado");
+                MessageBox.Show("Reserva Actualizada");
                 GetrenTable();
                 GetVehiculos();
                 GetUser();
