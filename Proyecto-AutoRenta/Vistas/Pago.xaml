@@ -32,7 +32,7 @@
             x:Name="Tarjetas"
             Margin="498,93,100,0" 
             Height="308"
-            Visibility="Visible"
+            Visibility="Collapsed"
             VerticalAlignment="Top" Grid.Row="1">
             <Label x:Name="lblTarjeta" Content="Numero tarjeta:" Foreground="White" FontSize="20"/>
             <TextBox 
