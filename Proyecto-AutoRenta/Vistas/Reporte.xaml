@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
-        Title="Reporte" Height="450" Width="800">
+        Title="Reporte" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
     <Border CornerRadius="12">
         <Border.Background>
 
@@ -116,7 +122,7 @@
                 FontSize="12"
                 FontFamily="Montserrat"
                 Cursor="Hand"
-                Margin="10,0,741,363" Grid.Row="1" Click="btngoback_Click">
+                Margin="10,14,741,379" Click="btngoback_Click" RenderTransformOrigin="0.757,-0.082" Grid.RowSpan="2">
                     <Button.Background>
                         <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
                     </Button.Background>
@@ -143,12 +149,11 @@
                 </Button>
                 <Label Content="Reporte Pagos" 
                        HorizontalAlignment="Center" 
-                       Margin="0,8,0,0" 
-                       Grid.Row="1" 
+                       Margin="0,15,0,0" 
                        VerticalAlignment="Top" 
                        Foreground="White" 
                        FontWeight="Bold" 
-                       FontSize="18" Width="144"/>
+                       FontSize="18" Width="144" RenderTransformOrigin="0.623,0.269" Grid.RowSpan="2"/>
 
                 <DataGrid x:Name="UserTable" 
                       AutoGenerateColumns="False" 
@@ -156,7 +161,7 @@
                       IsReadOnly="True" 
                       ColumnWidth="*" 
                       IsSynchronizedWithCurrentItem="True" 
-                      Margin="10,42,10,184" Grid.Row="1" >
+                      Margin="10,33,10,193" Grid.Row="1" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />

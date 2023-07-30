@@ -79,7 +79,7 @@ namespace Proyecto_AutoRenta.Vistas
                     {
                         double Total = pay - booking.Total;
                         newTotal = Total + booking.Total;
-                        MessageBox.Show($"El cliente debe pagar: ${Total}");
+                        MessageBox.Show($"El cliente debe pagar: ${Total} mas");
                     }
                     else
                     {
