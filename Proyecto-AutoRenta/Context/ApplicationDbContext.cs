@@ -19,6 +19,7 @@ namespace Proyecto_AutoRenta.Context
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Vehiculos> Vehiculo { get; set;}
         public DbSet<Reserve> Reservas { get; set; }
+        public DbSet<Pagos> Pagos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Rol>().HasData

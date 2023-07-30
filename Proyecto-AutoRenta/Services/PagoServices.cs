@@ -17,7 +17,7 @@ namespace Proyecto_AutoRenta.Services
             using (var _contex = new ApplicationDbContext())
             {
                 double sumaMonto;
-                sumaMonto = _contex.Reservas.Sum(v => v.Total);
+                sumaMonto = _contex.Pagos.Sum(v => v.Total);
                 return sumaMonto;
             }
         }
@@ -29,6 +29,71 @@ namespace Proyecto_AutoRenta.Services
             double total = vehiculo.Tarifa * dias;
 
             return total;
+        }
+
+        public void AddPay(Pagos request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Pagos res = new Pagos();
+
+                        res.PkPago = request.PkPago;
+                        res.Total = request.Total;
+                        res.Fecha = request.Fecha;
+                        _context.Pagos.Add(res);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Sucedio un error " + ex.Message, ex);
+            }
+        }
+
+        public void UpdatePay(Pagos request)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Pagos pagos = _context.Pagos.Find(request.PkPago);
+                    pagos.Total = request.Total;
+                    pagos.Fecha = request.Fecha;
+
+                    _context.Update(pagos);
+
+                    _context.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error " + ex.Message);
+            }
+        }
+
+        public List<Pagos> GetPagos()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+
+                    List<Pagos> pagos = _context.Pagos.ToList();
+
+                    return pagos;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error " + ex.Message);
+            }
         }
     }
 }

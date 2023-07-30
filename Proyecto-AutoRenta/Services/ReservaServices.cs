@@ -30,7 +30,7 @@ namespace Proyecto_AutoRenta.Services
                         res.FkUsuario = request.FkUsuario;
                         res.FechaSalida = request.FechaSalida;
                         res.FechaRegreso = request.FechaRegreso;
-                        res.Total = request.Total;
+                        res.FkPago = request.FkPago;
                         _context.Reservas.Add(res);
                         _context.SaveChanges();
                     }
@@ -51,6 +51,7 @@ namespace Proyecto_AutoRenta.Services
                     
                     List<Reserve> reserve = _context.Reservas
                         .Include(x => x.Vehiculos)
+                        .Include(x => x.Pago)
                         .Include(x => x.Usuario)
                         .ThenInclude(usuario => usuario.Roles)
                         .ToList();
@@ -75,7 +76,7 @@ namespace Proyecto_AutoRenta.Services
                     reserva.Nombre = request.Nombre;
                     reserva.Correo = request.Correo;
                     reserva.Telefono = request.Telefono;
-                    reserva.Total = request.Total;
+                    reserva.FkPago = request.FkPago;
                     reserva.FkVehiculos = request.FkVehiculos;
                     reserva.FkUsuario = request.FkUsuario;
                     reserva.FechaSalida = request.FechaSalida;

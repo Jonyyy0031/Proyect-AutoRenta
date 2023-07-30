@@ -59,7 +59,7 @@ namespace Proyecto_AutoRenta.Vistas
 
         public void GetrenTable()
         {
-            UserTable.ItemsSource = services.GetReserva();
+            UserTable.ItemsSource = pagoservices.GetPagos();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

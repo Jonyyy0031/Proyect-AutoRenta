@@ -1,5 +1,6 @@
 ﻿
 using Google.Protobuf.WellKnownTypes;
+using Microsoft.EntityFrameworkCore;
 using Proyecto_AutoRenta.Context;
 using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
@@ -77,13 +78,19 @@ namespace Proyecto_AutoRenta.Vistas
                 Usuario seleccionadoo = SelectUser.SelectedItem as Usuario;
                 reserve.FkUsuario = seleccionadoo.PkUsuario;
 
+
                 double pay = servicesPayment.UpdatePrice(seleccionado, fechaSalida, fechaRegreso);
+                Pagos booking = new Pagos();
+                PagoServices payservices = new PagoServices();
+                reserve.FkPago = 0;
 
                 double newTotal = pay;
                 using (var _context = new ApplicationDbContext())
                 {
-                    Reserve booking = new Reserve();
-                    booking = _context.Reservas.Find(reserve.PkReserva);
+                    Reserve rr = new Reserve();
+                    rr = _context.Reservas.Find(ID);
+                    reserve.FkPago = rr.FkPago;
+                    booking = _context.Pagos.Find(reserve.FkPago);
 
                     if (booking.Total > pay)
                     {
@@ -103,8 +110,11 @@ namespace Proyecto_AutoRenta.Vistas
                     }
                 }
 
-                reserve.Total = newTotal;
+                booking.PkPago = reserve.FkPago;
+                booking.Total = newTotal;
+                booking.Fecha = DateTime.Now;
                 services.Updatereser(reserve);
+                payservices.UpdatePay(booking);
 
                 txtPkReserva_.Clear();
                 txtCorreo.Clear();

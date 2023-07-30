@@ -125,7 +125,7 @@
                     <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
                     <DataGridTextColumn Header="Fecha Salida" Binding="{Binding  FechaSalida}" />
                     <DataGridTextColumn Header="Fecha Entrega" Binding="{Binding FechaRegreso}" />
-                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding Pago.Total}" />
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>

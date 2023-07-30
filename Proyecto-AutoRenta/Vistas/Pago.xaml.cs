@@ -1,4 +1,5 @@
 ﻿using Org.BouncyCastle.Asn1.X509;
+using Proyecto_AutoRenta.Context;
 using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
 using Stripe;
@@ -50,6 +51,9 @@ namespace Proyecto_AutoRenta.Vistas
                 DragMove();
             }
         }
+
+        double Total = 0;
+
         public void Reserva(Reserve reserva)
         {
             ReservaServices services = new ReservaServices();
@@ -69,7 +73,7 @@ namespace Proyecto_AutoRenta.Vistas
             int dias = diferencia.Days;
             lblRecibeAmount.Content = vehiculo.Tarifa * dias;
             ress.PkReserva = reserva.PkReserva;
-            ress.Total = vehiculo.Tarifa * dias;
+            Total = vehiculo.Tarifa * dias;
         }
 
         public Pago()
@@ -94,8 +98,8 @@ namespace Proyecto_AutoRenta.Vistas
         {
             try
             {
-                //StripeConfiguration.SetApiKey("pk_test_51L1nJ6KJ39qpYxSV5ioSMb4uBS7cX61nkyNWlE36EhGaM0Ns72eum376gRNl0hn2Pmywjdi2lFFz97oA6dTqCmOB0019F4eQpa");
-                StripeConfiguration.SetApiKey("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");
+                StripeConfiguration.SetApiKey("sk_test_51L1nJ6KJ39qpYxSVdNU2LImvvprzU0KjW68MEaRzaZHMFJM8jTrm7hqPQCaI1EgQssdXzdHaDpmEIvKNcJAIpkbt00Uqy4aQ6A");
+                //StripeConfiguration.SetApiKey("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");
 
                 var options = new PaymentMethodCreateOptions
                 {
@@ -127,22 +131,56 @@ namespace Proyecto_AutoRenta.Vistas
 
                 MessageBox.Show("Pago realizado con éxito. \nEstado: " + paymentIntent.Status + "\nReserva agregada!");
 
-                Reserve reserve = new Reserve();
+                
                 ReservaServices rservices = new ReservaServices();
+                PagoServices payservices = new PagoServices();
 
                 if (paymentIntent.Status == "succeeded")
                 {
-                    reserve.PkReserva = ress.PkReserva;
-                    reserve.Nombre = txtRecibeNombre.Text;
-                    reserve.Correo = txtRecibeCorreo.Text;
-                    reserve.Telefono = txtRecibeTelefono.Text;
-                    reserve.FechaSalida = f1;
-                    reserve.FechaRegreso = f2;
-                    reserve.FkVehiculos = ress.FkVehiculos;
-                    reserve.FkUsuario = ress.FkUsuario;
-                    reserve.Total = ress.Total;
+                    int ID;
+                    Pagos ultimoPago;
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        ultimoPago = _context.Pagos.OrderByDescending(u => u.PkPago).FirstOrDefault();
+                    }
+
+                    if (ultimoPago != null)
+                    {
+                        ID = ultimoPago.PkPago + 1;
+                    }
+                    else
+                    {
+                        ID = 1;
+                    }
+
+                    Pagos pagos = new Pagos
+                    {
+                        PkPago = ID,
+                        Total = Total,
+                        Fecha = DateTime.Now,
+                    };
+
+                    payservices.AddPay(pagos);
+
+                    Reserve reserve = new Reserve
+                    {
+                        Nombre = txtRecibeNombre.Text,
+                        Correo = txtRecibeCorreo.Text,
+                        Telefono = txtRecibeTelefono.Text,
+                        FechaSalida = f1,
+                        FechaRegreso = f2,
+                        FkVehiculos = ress.FkVehiculos,
+                        FkUsuario = ress.FkUsuario,
+                        FkPago = pagos.PkPago,
+                    };
+
                     rservices.Addreser(reserve);
                 }
+                else
+                {
+                    MessageBox.Show("Fallo en el pago");
+                }
+
 
                 txtCardNumberBox.Clear();
                 txtYearBox.Clear();
@@ -186,18 +224,44 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void Efectivo_Click(object sender, RoutedEventArgs e)
         {
-            Reserve reserve = new Reserve();
+            PagoServices payservices = new PagoServices();
             ReservaServices rservices = new ReservaServices();
 
-            reserve.PkReserva = ress.PkReserva;
-            reserve.Nombre = txtRecibeNombre.Text;
-            reserve.Correo = txtRecibeCorreo.Text;
-            reserve.Telefono = txtRecibeTelefono.Text;
-            reserve.FechaSalida = f1;
-            reserve.FechaRegreso = f2;
-            reserve.FkVehiculos = ress.FkVehiculos;
-            reserve.FkUsuario = ress.FkUsuario;
-            reserve.Total = ress.Total;
+            int ID;
+            Pagos ultimoPago;
+            using (var _context = new ApplicationDbContext())
+            {
+                ultimoPago = _context.Pagos.OrderByDescending(u => u.PkPago).FirstOrDefault();
+            }
+
+            if (ultimoPago.PkPago != 0)
+            {
+                ID = ultimoPago.PkPago + 1;
+            }
+            else
+            {
+                ID = 1;
+            }
+
+            Pagos pagos = new Pagos
+            {
+                PkPago = ID,
+                Total = Total,
+                Fecha = DateTime.Now,
+            };
+            payservices.AddPay(pagos);
+
+            Reserve reserve = new Reserve
+            {
+                Nombre = txtRecibeNombre.Text,
+                Correo = txtRecibeCorreo.Text,
+                Telefono = txtRecibeTelefono.Text,
+                FechaSalida = f1,
+                FechaRegreso = f2,
+                FkVehiculos = ress.FkVehiculos,
+                FkUsuario = ress.FkUsuario,
+                FkPago = pagos.PkPago,
+            };
             rservices.Addreser(reserve);
 
 

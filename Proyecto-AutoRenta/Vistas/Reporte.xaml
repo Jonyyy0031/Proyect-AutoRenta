@@ -194,15 +194,9 @@
                       IsSynchronizedWithCurrentItem="True" 
                       Margin="10,33,10,193" Grid.Row="1" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                        <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
-                        <DataGridTextColumn Header="Fecha Salida" Binding="{Binding  FechaSalida}" />
-                        <DataGridTextColumn Header="Fecha Entrega" Binding="{Binding FechaRegreso}" />
-                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
-                        <DataGridTextColumn Header="Gestor" Binding="{Binding Usuario.Nombre}"/>
-                        <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
+                        <DataGridTextColumn Header="Id" Binding="{Binding PkPago}" />
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}" />
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" />
                     </DataGrid.Columns>
                 </DataGrid>
 
