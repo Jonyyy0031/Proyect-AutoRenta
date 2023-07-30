@@ -234,7 +234,7 @@ namespace Proyecto_AutoRenta.Vistas
                 ultimoPago = _context.Pagos.OrderByDescending(u => u.PkPago).FirstOrDefault();
             }
 
-            if (ultimoPago.PkPago != 0)
+            if (ultimoPago != null)
             {
                 ID = ultimoPago.PkPago + 1;
             }

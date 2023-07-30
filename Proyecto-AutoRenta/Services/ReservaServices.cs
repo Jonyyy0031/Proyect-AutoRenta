@@ -119,7 +119,7 @@ namespace Proyecto_AutoRenta.Services
                     {
                         _context.Reservas.Remove(reserva);
                         _context.SaveChanges();
-                        MessageBox.Show("El usuario ha sido eliminado correctamente.");
+                        MessageBox.Show("la reserva ha sido eliminada correctamente.");
                     }
                     else
                     {
