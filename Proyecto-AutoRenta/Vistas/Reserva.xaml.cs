@@ -164,10 +164,18 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void DeleteItem(object sender, RoutedEventArgs e)
         {
+            PagoServices pagos = new PagoServices();
             Reserve reserve = new Reserve();
             reserve = (sender as FrameworkElement).DataContext as Reserve;
             int ID = int.Parse(reserve.PkReserva.ToString());
+            Reserve rr = new Reserve();
+            using (var _context = new ApplicationDbContext())
+            {
+                rr = _context.Reservas.Find(ID);
+            }
             services.Deletereser(ID);
+            pagos.DeletePay(rr.FkPago);
+
 
             txtPkReserva_.Clear();
             txtNombre.Clear();

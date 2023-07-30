@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Proyecto_AutoRenta.Services
 {
@@ -93,6 +94,32 @@ namespace Proyecto_AutoRenta.Services
             catch (Exception ex)
             {
                 throw new Exception("Ocurrio un error " + ex.Message);
+            }
+        }
+
+        public void DeletePay(int id)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Pagos pagos = _context.Pagos.Find(id);
+                    if (pagos != null)
+                    {
+                        _context.Pagos.Remove(pagos);
+                        _context.SaveChanges();
+                        MessageBox.Show("El pago ha sido eliminado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ningún pago con el ID especificado.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Succedio un error" + ex.Message);
             }
         }
     }
