@@ -25,7 +25,7 @@
             x:Name="Tarjetas"
             Margin="498,93,100,0" 
             Height="308"
-            Visibility="Collapsed"
+            Visibility="Visible"
             VerticalAlignment="Top" Grid.Row="1">
             <Label x:Name="lblTarjeta" Content="Numero tarjeta:" Foreground="White" FontSize="20"/>
             <TextBox 
@@ -40,7 +40,7 @@
                 TextWrapping="Wrap" 
                 Height="23">
                 <TextBox.Background>
-                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-parte-trasera-de-tarjeta-bancaria-16.png"
+                    <ImageBrush ImageSource="\Images\icons8-parte-trasera-de-tarjeta-bancaria-16.png"
                                             Stretch="None"
                                             AlignmentX="Left"/>
                 </TextBox.Background>
@@ -57,7 +57,7 @@
                 TextWrapping="Wrap" 
                 Height="23">
                 <TextBox.Background>
-                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-calendario-12.png"
+                    <ImageBrush ImageSource="\Images\icons8-calendario-12.png"
                                             Stretch="None"
                                             AlignmentX="Left"/>
                 </TextBox.Background>
@@ -74,7 +74,7 @@
                 TextWrapping="Wrap" 
                 Height="23">
                 <TextBox.Background>
-                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-calendario-12.png"
+                    <ImageBrush ImageSource="\Images\icons8-calendario-12.png"
                                             Stretch="None"
                                             AlignmentX="Left"/>
                 </TextBox.Background>
@@ -90,7 +90,7 @@
                 CaretBrush="White"
                 Height="23">
                 <PasswordBox.Background>
-                    <ImageBrush ImageSource="C:\Users\Alfredo Casanova\source\repos\Proyect-AutoRenta\Proyecto-AutoRenta\Images\icons8-cvv-16.png"
+                    <ImageBrush ImageSource="\Images\icons8-cvv-16.png"
                                             Stretch="None"
                                             AlignmentX="Left"/>
                 </PasswordBox.Background>
