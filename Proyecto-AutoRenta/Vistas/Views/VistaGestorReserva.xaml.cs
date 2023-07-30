@@ -12,18 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Proyecto_AutoRenta.Vistas
+namespace Proyecto_AutoRenta.Vistas.Views
 {
     /// <summary>
-    /// Lógica de interacción para VistaSuperAdmin.xaml
+    /// Lógica de interacción para VistaGestorReserva.xaml
     /// </summary>
-    public partial class VistaSuperAdmin : Window
+    public partial class VistaGestorReserva : Window
     {
-        public VistaSuperAdmin()
+        public VistaGestorReserva()
         {
             InitializeComponent();
-        }
 
+        }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -41,35 +41,12 @@ namespace Proyecto_AutoRenta.Vistas
                 DragMove();
             }
         }
-        private void BtnGoUsuarios_Click(object sender, RoutedEventArgs e)
-        {
-            CRUDUsuario StartUSERS = new CRUDUsuario();
-            this.Close();
-            StartUSERS.Show();
-
-        }
-
-        private void BtnGoRoles_Click(object sender, RoutedEventArgs e)
-        {
-            CRUDRoles StartCRUDROLES = new CRUDRoles();
-            this.Close();
-            StartCRUDROLES.Show();
-        }
-
         private void BtnGoReservas_Click(object sender, RoutedEventArgs e)
         {
             Reserva StartRESERVAS = new Reserva();
             this.Close();
             StartRESERVAS.Show();
         }
-
-        private void BtnGoInventario_Click(object sender, RoutedEventArgs e)
-        {
-            Inventario StartINVENTARIO = new Inventario();
-            this.Close();
-            StartINVENTARIO.Show();
-        }
-
         private void BtnGoPagos_Click(object sender, RoutedEventArgs e)
         {
             Reporte StartREPORTE = new Reporte();

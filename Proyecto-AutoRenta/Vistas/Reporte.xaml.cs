@@ -1,4 +1,6 @@
-﻿using Proyecto_AutoRenta.Services;
+﻿using Proyecto_AutoRenta.Entities;
+using Proyecto_AutoRenta.Services;
+using Proyecto_AutoRenta.Vistas.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +32,25 @@ namespace Proyecto_AutoRenta.Vistas
             InitializeComponent();
             GetrenTable();
             GTotal();
+            if (App.UsuarioAutenticado != null)
+            {
+                Usuario usuarioAutenticado = App.UsuarioAutenticado;
+                MostrarBotonSegunRol(usuarioAutenticado);
+            }
         }
 
+        private void MostrarBotonSegunRol(Usuario usuario)
+        {
+            // Verificar si el usuario es "SuperAdmin" y mostrar u ocultar el botón según el rol.
+            if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
+            {
+                btngobackadmin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btngobackadmin.Visibility = Visibility.Collapsed;
+            }
+        }
         public void GTotal()
         {
             Gtotal = pagoservices.Monto();
@@ -55,9 +74,10 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
+
+            VistaGestorReserva StartViewGR = new VistaGestorReserva();
             this.Close();
-            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
-            StartViewSA.Show();
+            StartViewGR.Show();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -66,6 +86,13 @@ namespace Proyecto_AutoRenta.Vistas
             {
                 DragMove();
             }
+        }
+
+        private void btngobackadmin_Click(object sender, RoutedEventArgs e)
+        {
+            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
+            this.Close();
+            StartViewSA.Show();
         }
     }
 }

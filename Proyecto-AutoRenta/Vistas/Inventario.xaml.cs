@@ -26,6 +26,23 @@ namespace Proyecto_AutoRenta.Vistas
         {
             InitializeComponent();
             GetUserTable();
+            if (App.UsuarioAutenticado != null)
+            {
+                Usuario usuarioAutenticado = App.UsuarioAutenticado;
+                MostrarBotonSegunRol(usuarioAutenticado);
+            }
+        }
+        private void MostrarBotonSegunRol(Usuario usuario)
+        {
+            // Verificar si el usuario es "SuperAdmin" y mostrar u ocultar el botón según el rol.
+            if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
+            {
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Collapsed;
+            }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -113,6 +130,13 @@ namespace Proyecto_AutoRenta.Vistas
         public void GetUserTable()
         {
             UserTable.ItemsSource = services.GetUsuarios();
+        }
+
+        private void btnFlechaIzquierdaadmin_Click(object sender, RoutedEventArgs e)
+        {
+            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
+            this.Close();
+            StartViewSA.Show();
         }
     }
 }

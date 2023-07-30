@@ -1,5 +1,6 @@
 ﻿using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
+using Proyecto_AutoRenta.Vistas.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,6 +72,7 @@ namespace Proyecto_AutoRenta.Vistas
                     return;
                 }
                 string rol = usuario.Roles.Nombre;
+                App.UsuarioAutenticado = usuario;
                 switch (rol)
                 {
                     case "SuperAdmin":
@@ -78,12 +80,20 @@ namespace Proyecto_AutoRenta.Vistas
                         Close();
                         VistaSuperAdmin iniciar = new VistaSuperAdmin();
                         iniciar.Show();
-
                         break;
-                    case "Usuario":
+                        
+                    case "GestorReserva":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                         Close();
+                        VistaGestorReserva ViewReserve = new VistaGestorReserva();
+                        ViewReserve.Show();
                         break;
-                    default:
+
+                    case "GestorInventario":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        Inventario StartInventary = new Inventario();
+                        StartInventary.Show();
                         break;
                 }
 

@@ -12,7 +12,7 @@ namespace Proyecto_AutoRenta.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySQL("Server=localhost; database=AutoRentaLive; user=root; password=;");
+            options.UseMySQL("Server=localhost; database=Proyectoautorenta23bm; user=root; password=;");
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -29,6 +29,22 @@ namespace Proyecto_AutoRenta.Context
                         Nombre = "SuperAdmin"
                     }
                 );
+            modelBuilder.Entity<Rol>().HasData
+                (
+                    new Rol
+                    {
+                        PkRol = 2,
+                        Nombre = "GestorReserva"
+                    }
+                );
+            modelBuilder.Entity<Rol>().HasData
+                (
+                    new Rol
+                    {
+                        PkRol = 3,
+                        Nombre = "GestorInventario"
+                    }
+                );
             modelBuilder.Entity<Usuario>().HasData
             (
                 new Usuario
@@ -39,17 +55,52 @@ namespace Proyecto_AutoRenta.Context
                     Password = "admin",
                     FkRol = 1,
                 }
+
             );
+            modelBuilder.Entity<Usuario>().HasData
+            (
+                new Usuario
+                {
+                    PkUsuario = 2,
+                    Nombre = "Jero",
+                    UserName = "123",
+                    Password = "123",
+                    FkRol = 2,
+                }
+
+            );
+            modelBuilder.Entity<Usuario>().HasData
+           (
+               new Usuario
+               {
+                   PkUsuario = 3,
+                   Nombre = "Jhordi",
+                   UserName = "1234",
+                   Password = "1234",
+                   FkRol = 3,
+               }
+
+           );
             modelBuilder.Entity<Vehiculos>().HasData
             (
                 new Vehiculos
                 {
                     PkVehiculo = 1,
-                    Modelo = "2023",
+                    Modelo = "Nissan",
                     Tipo = "Deportivo",
                     Tarifa = 123,
                 }
            );
+            modelBuilder.Entity<Vehiculos>().HasData
+           (
+               new Vehiculos
+               {
+                   PkVehiculo = 2,
+                   Modelo = "Chevrolet",
+                   Tipo = "Super",
+                   Tarifa = 300,
+               }
+          );
         }
         
      }

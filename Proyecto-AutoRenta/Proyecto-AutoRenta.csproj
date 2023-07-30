@@ -19,11 +19,15 @@
     <None Remove="Images\coche_INVENTARIO.png" />
     <None Remove="Images\engranaje.png" />
     <None Remove="Images\flecha-izquierda.png" />
+    <None Remove="Images\flecha-izquierda1.png" />
     <None Remove="Images\flota.png" />
     <None Remove="Images\fondo_inventario.png" />
     <None Remove="Images\gerente-de-proyecto.png" />
     <None Remove="Images\gestion-de-equipos.png" />
     <None Remove="Images\grupos.png" />
+    <None Remove="Images\icons8-calendario-12.png" />
+    <None Remove="Images\icons8-cvv-16.png" />
+    <None Remove="Images\icons8-parte-trasera-de-tarjeta-bancaria-16.png" />
     <None Remove="Images\key-icon.png" />
     <None Remove="Images\listas-de-control.png" />
     <None Remove="Images\logo.png" />
@@ -38,6 +42,10 @@
 
   <ItemGroup>
     <Resource Include="Images\flecha-izquierda.png" />
+    <Resource Include="Images\flecha-izquierda1.png" />
+    <Resource Include="Images\icons8-calendario-12.png" />
+    <Resource Include="Images\icons8-cvv-16.png" />
+    <Resource Include="Images\icons8-parte-trasera-de-tarjeta-bancaria-16.png" />
     <Resource Include="Images\pase-de-prensa.png" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_AutoRenta.Entities;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace Proyecto_AutoRenta
     /// </summary>
     public partial class App : Application
     {
+        public static Usuario UsuarioAutenticado { get; set; }
     }
 }

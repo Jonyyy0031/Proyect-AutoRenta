@@ -3,6 +3,7 @@ using Google.Protobuf.WellKnownTypes;
 using Proyecto_AutoRenta.Context;
 using Proyecto_AutoRenta.Entities;
 using Proyecto_AutoRenta.Services;
+using Proyecto_AutoRenta.Vistas.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,12 +32,27 @@ namespace Proyecto_AutoRenta.Vistas
             GetrenTable();
             GetVehiculos();
             GetUser();
-
+            if (App.UsuarioAutenticado != null)
+            {
+                Usuario usuarioAutenticado = App.UsuarioAutenticado;
+                MostrarBotonSegunRol(usuarioAutenticado);
+            }
         }
 
         Reserve reserve = new Reserve();
         ReservaServices services = new ReservaServices();
-
+        private void MostrarBotonSegunRol(Usuario usuario)
+        {
+            // Verificar si el usuario es "SuperAdmin" y mostrar u ocultar el botón según el rol.
+            if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
+            {
+                btngobackadmin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btngobackadmin.Visibility = Visibility.Collapsed;
+            }
+        }
         private void btnReserva_Click(object sender, RoutedEventArgs e)
         {
             DateTime fechaSalida = datePickerSalida.SelectedDate.HasValue ? datePickerSalida.SelectedDate.Value : DateTime.MinValue;
@@ -209,14 +225,21 @@ namespace Proyecto_AutoRenta.Vistas
         }
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            VistaGestorReserva StartViewGR = new VistaGestorReserva();
             this.Close();
+            StartViewGR.Show();
         }
 
         private void UserTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btngobackadmin_Click(object sender, RoutedEventArgs e)
+        {
+            VistaSuperAdmin StartViewAdmin = new VistaSuperAdmin();
+            this.Close();
+            StartViewAdmin.Show();
         }
     }
 }
