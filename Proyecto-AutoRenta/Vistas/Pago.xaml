@@ -206,7 +206,7 @@
         <Label Foreground="White" Content="Metodo de Pago:" HorizontalAlignment="Left" Margin="519,13,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="20" Height="37" Width="162"/>
         <ComboBox 
             x:Name="comboBoxPaymentMetodo" 
-            Margin="498,50,100,341" 
+            Margin="498,50,100,357" 
             Grid.Row="1" 
             SelectedIndex="0"
             SelectionChanged="ComboBoxPaymentMetodo_SelectionChanged"/>
