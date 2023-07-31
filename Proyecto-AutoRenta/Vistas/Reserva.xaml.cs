@@ -65,14 +65,12 @@ namespace Proyecto_AutoRenta.Vistas
                 return;
             }
 
-            if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today)
+            if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today || fechaRegreso != fechaSalida)
             {
                 MessageBox.Show("Las fechas de salida y regreso no pueden ser anteriores al día de hoy.");
                 return;
             }
-
-            //DateTime fechaSalida = datePickerSalida.SelectedDate.HasValue ? datePickerSalida.SelectedDate.Value : DateTime.MinValue;
-            //DateTime fechaRegreso = datePickerRegreso.SelectedDate.HasValue ? datePickerRegreso.SelectedDate.Value : DateTime.MinValue;
+            
             int ID;
             if (int.TryParse(txtPkReserva_.Text, out ID))
             {

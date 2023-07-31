@@ -128,12 +128,12 @@ namespace Proyecto_AutoRenta.Vistas
                     }
                     else
                     {
-                        MessageBox.Show("NGRESE UNA TARIFA VALIDA");
+                        MessageBox.Show("INGRESE UNA TARIFA VALIDA");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("INGRESE UNA ID VALIDA");
+                    MessageBox.Show("ID NO VALIDA");
                 }
             }
         }
