@@ -123,8 +123,9 @@
                     <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
                     <DataGridTextColumn Header="Gestor" Binding="{Binding Usuario.Nombre}"/>
                     <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
-                    <DataGridTextColumn Header="Fecha Salida" Binding="{Binding  FechaSalida}" />
-                    <DataGridTextColumn Header="Fecha Entrega" Binding="{Binding FechaRegreso}" />
+                    <DataGridTextColumn Header="Salida" Binding="{Binding  FechaSalida}" />
+                    <DataGridTextColumn Header="Entrega" Binding="{Binding FechaRegreso}" />
+                    <DataGridTextColumn Header="IDPago" Binding="{Binding Pago.PkPago}" />
                     <DataGridTextColumn Header="Total" Binding="{Binding Pago.Total}" />
 
                     <DataGridTemplateColumn Header="Editar">

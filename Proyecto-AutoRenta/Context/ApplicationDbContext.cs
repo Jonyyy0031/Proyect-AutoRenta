@@ -12,7 +12,7 @@ namespace Proyecto_AutoRenta.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySQL("Server=localhost; database=Proyectoautorenta23bm; user=root; password=;");
+            options.UseMySQL("Server=localhost; database=Proyectoautorenta23bm; user=root;");
         }
 
         public DbSet<Usuario> Usuarios { get; set; }

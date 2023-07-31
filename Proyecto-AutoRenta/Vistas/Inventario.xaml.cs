@@ -61,7 +61,7 @@ namespace Proyecto_AutoRenta.Vistas
         {
             Application.Current.Shutdown();
         }
-        public void BtnFlechaIzquierda_Click (object sender, RoutedEventArgs e)
+        public void BtnFlechaIzquierda_Click(object sender, RoutedEventArgs e)
         {
             Login iniciar = new Login();
             iniciar.Show();
@@ -72,41 +72,68 @@ namespace Proyecto_AutoRenta.Vistas
         Vehiculos vehiculo = new Vehiculos();
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            
 
-            if (txtPkVehiculo.Text == "")
+
+            if (string.IsNullOrEmpty(txtModelo.Text) || string.IsNullOrEmpty(SelectTipo.Text) || string.IsNullOrEmpty(txtTarifa.Text))
             {
-                vehiculo.Modelo = txtModelo.Text;
-                vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
-
-                services.AddVehiculo(vehiculo);
-
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
-
-                MessageBox.Show("SE AGREGÓ EL VEHÍCULO CORRECTAMENTE");
-                GetUserTable();
+                MessageBox.Show("Por favor, complete todos los campos");
             }
 
-            else if (txtPkVehiculo.Text != "")
+            else if (txtPkVehiculo.Text == "")
             {
-                int id = int.Parse(txtPkVehiculo.Text);
-                vehiculo.PkVehiculo = id;
                 vehiculo.Modelo = txtModelo.Text;
                 vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
+                if (double.TryParse(txtTarifa.Text, out double tarifa))
+                {
+                    vehiculo.Tarifa = tarifa;
+                    services.AddVehiculo(vehiculo);
+                    //vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                services.UpdateUser(vehiculo);
+                    txtModelo.Clear();
+                    SelectTipo.SelectedIndex = -1;
+                    txtTarifa.Clear();
 
-                MessageBox.Show("¡Datos del vehículos modificados correctamente!");
-                txtPkVehiculo.Clear();
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
+                    MessageBox.Show("Se agregó el vehiculo correctamente");
+                    GetUserTable();
+                }
+                else
+                {
+                    MessageBox.Show("ingrese una tarifa valida");
+                }
+            }
+            else
+            {
+                if (int.TryParse(txtPkVehiculo.Text, out int ID))
+                {
+                    //int id = int.Parse(txtPkVehiculo.Text);
+                    vehiculo.PkVehiculo = ID;
+                    vehiculo.Modelo = txtModelo.Text;
+                    vehiculo.Tipo = SelectTipo.Text;
 
-                GetUserTable();
+                    //Validar la entrada al campo tarifa
+                    if (double.TryParse(txtTarifa.Text, out double tarifa))
+                    {
+                        vehiculo.Tarifa = tarifa;
+
+                        services.UpdateVehiculo(vehiculo);
+
+                        MessageBox.Show("¡Datos del vehículos modificados correctamente!");
+                        txtPkVehiculo.Clear();
+                        txtModelo.Clear();
+                        SelectTipo.SelectedIndex = -1;
+                        txtTarifa.Clear();
+
+                        GetUserTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("INGRESE UNA TARIFA VALIDA");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ID NO VALIDA");
+                }
             }
 
         }
@@ -124,12 +151,12 @@ namespace Proyecto_AutoRenta.Vistas
         {
             vehiculo = (sender as FrameworkElement).DataContext as Vehiculos;
             int ID = int.Parse(vehiculo.PkVehiculo.ToString());
-            services.DeleteUser(ID);
+            services.DeleteVehiculo(ID);
             GetUserTable();
         }
         public void GetUserTable()
         {
-            UserTable.ItemsSource = services.GetUsuarios();
+            UserTable.ItemsSource = services.GetVehiculos();
         }
 
         private void btnFlechaIzquierdaadmin_Click(object sender, RoutedEventArgs e)
