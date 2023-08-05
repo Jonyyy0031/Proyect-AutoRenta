@@ -41,7 +41,7 @@ namespace Proyecto_AutoRenta.Vistas
             }
             else
             {
-                btnFlechaIzquierdaadmin.Visibility = Visibility.Collapsed;
+                btnFlechaIzquierda.Visibility = Visibility.Visible;
             }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -78,15 +78,17 @@ namespace Proyecto_AutoRenta.Vistas
             {
                 MessageBox.Show("Por favor, complete todos los campos");
             }
-
+            else if (!double.TryParse(txtTarifa.Text, out double tarifa) || tarifa < 0 || tarifa > 1000000)
+            {
+                MessageBox.Show("Ingrese una tarifa válida");
+            }
             else if (txtPkVehiculo.Text == "")
             {
                 vehiculo.Modelo = txtModelo.Text;
                 vehiculo.Tipo = SelectTipo.Text;
-                if (double.TryParse(txtTarifa.Text, out double tarifa))
-                {
-                    vehiculo.Tarifa = tarifa;
-                    services.AddVehiculo(vehiculo);
+                vehiculo.Tarifa = tarifa;
+
+                services.AddVehiculo(vehiculo);
                     //vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
                     txtModelo.Clear();
@@ -95,11 +97,6 @@ namespace Proyecto_AutoRenta.Vistas
 
                     MessageBox.Show("Se agregó el vehiculo correctamente");
                     GetUserTable();
-                }
-                else
-                {
-                    MessageBox.Show("ingrese una tarifa valida");
-                }
             }
             else
             {
@@ -111,9 +108,7 @@ namespace Proyecto_AutoRenta.Vistas
                     vehiculo.Tipo = SelectTipo.Text;
 
                     //Validar la entrada al campo tarifa
-                    if (double.TryParse(txtTarifa.Text, out double tarifa))
-                    {
-                        vehiculo.Tarifa = tarifa;
+                        vehiculo.Tarifa = tarifa ;
 
                         services.UpdateVehiculo(vehiculo);
 
@@ -124,11 +119,6 @@ namespace Proyecto_AutoRenta.Vistas
                         txtTarifa.Clear();
 
                         GetUserTable();
-                    }
-                    else
-                    {
-                        MessageBox.Show("INGRESE UNA TARIFA VALIDA");
-                    }
                 }
                 else
                 {
@@ -165,5 +155,37 @@ namespace Proyecto_AutoRenta.Vistas
             this.Close();
             StartViewSA.Show();
         }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string modeloBuscado = txtModelo.Text.Trim();
+
+            if (string.IsNullOrEmpty(modeloBuscado))
+            {
+                MessageBox.Show("Ingrese un modelo de vehículo para buscar.");
+                return;
+            }
+
+            VehiculosServices services = new VehiculosServices();
+            List<Vehiculos> vehiculosEncontrados = services.BuscarVehiculosPorModelo(modeloBuscado);
+
+            if (vehiculosEncontrados.Count > 0)
+            {
+                StringBuilder messageBuilder = new StringBuilder();
+                messageBuilder.AppendLine("Vehículos encontrados con el modelo: " + modeloBuscado);
+
+                foreach (var vehiculo in vehiculosEncontrados)
+                {
+                    messageBuilder.AppendLine($"Modelo: {vehiculo.Modelo}, Tipo: {vehiculo.Tipo}, Tarifa: {vehiculo.Tarifa}");
+                }
+
+                MessageBox.Show(messageBuilder.ToString(), "Resultados de la búsqueda");
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron vehículos con el modelo especificado.");
+            }
+        }
+
     }
 }

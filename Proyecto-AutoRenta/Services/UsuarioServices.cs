@@ -130,5 +130,26 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
         }
+
+        public List<Usuario> SearchUsuariosByRol(int rolId)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Usuario> usuarios = _context.Usuarios
+                        .Where(u => u.FkRol == rolId)
+                        .Include(x => x.Roles)
+                        .ToList();
+
+                    return usuarios;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error " + ex.Message);
+            }
+        }
+
     }
 }

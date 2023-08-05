@@ -179,7 +179,7 @@
                                         AlignmentX="Left"/>
                     </TextBox.Background>
                 </TextBox>
-                         
+
 
                 <Label Content="Usuario" 
                        HorizontalAlignment="Left" 
@@ -275,6 +275,17 @@
                      Width="124"
                      Style="{StaticResource RoundButtonTemplate}"
                      Click="BtnAdd_Click" FontWeight="Bold" FontSize="20" Background="#FF1E42FF"/>
+
+                <Button x:Name="btnBuscar"
+                    Content="Buscar"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Width="124"
+                     Margin="636,462,0,0"
+                     Height="35"
+                     Click="BtnBuscar_Click"
+                     Style="{StaticResource RoundButtonTemplate}"
+                     FontWeight="Bold" FontSize="20" Background="#FF1E42FF" Grid.Row="1"/>
 
                 <DataGrid x:Name="UserTable" 
                           AutoGenerateColumns="False" 

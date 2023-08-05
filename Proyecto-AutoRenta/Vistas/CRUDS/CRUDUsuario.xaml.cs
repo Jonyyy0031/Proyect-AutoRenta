@@ -136,5 +136,34 @@ namespace Proyecto_AutoRenta.Vistas
             VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
             StartViewSA.Show();
         }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectRol.SelectedValue != null && int.TryParse(SelectRol.SelectedValue.ToString(), out int rolId))
+            {
+                UsuarioServices usuarioServices = new UsuarioServices();
+                List<Usuario> usuarios = usuarioServices.SearchUsuariosByRol(rolId);
+
+                if (usuarios.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var usuario in usuarios)
+                    {
+                        sb.AppendLine($"Nombre: {usuario.Nombre}\nUsuario: {usuario.UserName}\nPassword: {usuario.Password}\nRol: {usuario.Roles.Nombre}\n");
+                    }
+
+                    MessageBox.Show(sb.ToString(), "Usuarios por Rol");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron usuarios con el rol seleccionado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un rol válido.");
+            }
+        }
+
     }
 }

@@ -47,7 +47,7 @@ namespace Proyecto_AutoRenta.Services
 
                     if (vehiculo != null)
                     {
-                        // Elimina el usuario del contexto
+                        // Elimina el vehiculo del contexto
                         _context.Vehiculo.Remove(vehiculo);
                         _context.SaveChanges();
                         MessageBox.Show("El vehículo se removió del inventario");
@@ -78,7 +78,7 @@ namespace Proyecto_AutoRenta.Services
                         vehiculo.Tipo = request.Tipo;
                         vehiculo.Tarifa = request.Tarifa;
 
-                        //_context.Update(usuario);
+                        //_context.Update(vehiculo);
                         _context.Entry(vehiculo).State = EntityState.Modified;
                         _context.SaveChanges();
                     }
@@ -115,6 +115,26 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
         }
+
+        public List<Vehiculos> BuscarVehiculosPorModelo(string modelo)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Vehiculos> vehiculos = _context.Vehiculo
+                        .Where(v => v.Modelo.ToLower() == modelo.ToLower())
+                        .ToList();
+
+                    return vehiculos;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error: " + ex.Message);
+            }
+        }
+
 
     }
 }

@@ -171,6 +171,21 @@
                      Width="124"
                      Style="{StaticResource RoundButtonTemplate}"
                      Click="BtnAgregar_Click" FontWeight="Bold" FontSize="20" Background="#FF1E42FF"/>
+                <Button x:Name="btnBuscar"
+                    Content="Buscar"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Height="35"
+                     Width="124"
+                     Margin="639,459,0,0"
+                     Click="BtnBuscar_Click"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     Background="#FF1E42FF"
+                     Foreground="White"
+                     BorderThickness="0"
+                     Cursor="Hand" Grid.Row="1"
+                     Style="{StaticResource RoundButtonTemplate}"/>
                 <DataGrid x:Name="UserTable" 
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
@@ -239,6 +254,7 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
+                        Visibility="Collapsed"
                             Click="BtnFlechaIzquierda_Click" Margin="10,5,765,489" Grid.Row="1">
                     <Image Source="/Images/cerrar-sesion.png"
                     Stretch="Fill"/>
@@ -269,8 +285,8 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            
-                            Click="btnFlechaIzquierdaadmin_Click" Margin="10,5,765,489" Grid.Row="1">
+                        Visibility="Collapsed"
+                            Click="btnFlechaIzquierdaadmin_Click" Margin="2,0,757,480" Grid.Row="1" >
                     <Image Source="/Images/flecha-izquierda.png"
                     Stretch="Fill"/>
                     <Button.Style>
