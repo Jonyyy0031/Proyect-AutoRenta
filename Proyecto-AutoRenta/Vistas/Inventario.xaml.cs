@@ -176,7 +176,7 @@ namespace Proyecto_AutoRenta.Vistas
 
                 foreach (var vehiculo in vehiculosEncontrados)
                 {
-                    messageBuilder.AppendLine($"Modelo: {vehiculo.Modelo}, Tipo: {vehiculo.Tipo}, Tarifa: {vehiculo.Tarifa}");
+                    messageBuilder.AppendLine($"Modelo: {vehiculo.Modelo}, Tipo: {vehiculo.Tipo}, Tarifa: ${vehiculo.Tarifa}");
                 }
 
                 MessageBox.Show(messageBuilder.ToString(), "Resultados de la búsqueda");

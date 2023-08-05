@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
-        Title="AutoRenta" Height="550" Width="800"
+        Title="AutoRenta" Height="550" Width="800" Icon="/Images/coche.png"
                 WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
