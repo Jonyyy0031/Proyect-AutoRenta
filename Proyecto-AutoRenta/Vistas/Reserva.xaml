@@ -34,7 +34,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+                    <Grid Grid.Row="0" Margin="15,0,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="25"/>
@@ -115,7 +115,7 @@
                           IsReadOnly="True" 
                           ColumnWidth="*" 
                           IsSynchronizedWithCurrentItem="True" 
-                                                    Margin="10,225,10,1" Grid.Row="1" SelectionChanged="UserTable_SelectionChanged" >
+                                                    Margin="28,216,10,10" Grid.Row="1" SelectionChanged="UserTable_SelectionChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
