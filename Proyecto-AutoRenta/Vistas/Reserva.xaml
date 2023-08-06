@@ -13,9 +13,14 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
-    <Border CornerRadius="10"                    
-            BorderThickness="2"
-           Opacity="0.95" Margin="-15,-15,0,0">
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="\Images\6hkkleubbd931.jpg"
+                        Stretch="None"/>
+        </Border.Background>
+        <Border CornerRadius="10"                    
+                BorderThickness="2"
+               Opacity="0.95">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -23,293 +28,287 @@
                     <GradientStop Color="#8A16C1" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#060531" Offset="0"/>
-                <GradientStop Color="#1B1448" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>
-        <Grid Margin="-2,8,-2,8">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="15,0,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="RESERVA"
-                                   Foreground="DarkGray"
-                                   FontSize="10"
-                                   FontFamily="Montserrat"
-                                   Grid.Column="0"
-                                   VerticalAlignment="Center"
-                                   Margin="10,0,0,0"/>
-                        <Button x:Name="btnMinimize"                           
-                                BorderThickness="0"
-                                Content="-"
-                                Foreground="White"
-                                FontSize="16"
-                                FontFamily="Montserrat"
-                                Cursor="Hand"
-                                Grid.Column="1"
-                                Click="btnMinimize_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#28AEED"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#278BEF"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="18" Height="18"
-                                            CornerRadius="9"
-                                            Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <Button x:Name="btnClose"                          
-                                BorderThickness="0"
-                                Content="X"
-                                Foreground="White"
-                                FontSize="12"
-                                FontFamily="Montserrat"
-                                Cursor="Hand"
-                                Grid.Column="2"
-                                Click="btnClose_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#DA34AE"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#C62DAE"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="18" Height="18"
-                                            CornerRadius="9"
-                                            Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </Grid>
-                    <DataGrid x:Name="UserTable" 
-                          AutoGenerateColumns="False" 
-                          CanUserAddRows="False" 
-                          IsReadOnly="True" 
-                          ColumnWidth="*" 
-                          IsSynchronizedWithCurrentItem="True" 
-                                                    Margin="28,216,10,10" Grid.Row="1" SelectionChanged="UserTable_SelectionChanged" >
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
-                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                    <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
-                    <DataGridTextColumn Header="Gestor" Binding="{Binding Usuario.Nombre}"/>
-                    <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
-                    <DataGridTextColumn Header="Salida" Binding="{Binding  FechaSalida}" />
-                    <DataGridTextColumn Header="Entrega" Binding="{Binding FechaRegreso}" />
-                    <DataGridTextColumn Header="IDPago" Binding="{Binding Pago.PkPago}" />
-                    <DataGridTextColumn Header="Total" Binding="{Binding Pago.Total}" />
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid Margin="-2,8,-2,8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="15,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="RESERVA"
+                                       Foreground="DarkGray"
+                                       FontSize="10"
+                                       FontFamily="Montserrat"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"                           
+                                    BorderThickness="0"
+                                    Content="-"
+                                    Foreground="White"
+                                    FontSize="16"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Grid.Column="1"
+                                    Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                                CornerRadius="9"
+                                                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"                          
+                                    BorderThickness="0"
+                                    Content="X"
+                                    Foreground="White"
+                                    FontSize="12"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Grid.Column="2"
+                                    Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                                CornerRadius="9"
+                                                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <DataGrid x:Name="UserTable" 
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False" 
+                              IsReadOnly="True" 
+                              ColumnWidth="*" 
+                              IsSynchronizedWithCurrentItem="True" 
+                              Margin="19,216,19,10" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                        <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+                        <DataGridTextColumn Header="Gestor" Binding="{Binding Usuario.Nombre}"/>
+                        <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
+                        <DataGridTextColumn Header="Salida" Binding="{Binding  FechaSalida}" />
+                        <DataGridTextColumn Header="Entrega" Binding="{Binding FechaRegreso}" />
+                        <DataGridTextColumn Header="IDPago" Binding="{Binding Pago.PkPago}" />
+                        <DataGridTextColumn Header="Total" Binding="{Binding Pago.Total}" />
 
-                    <DataGridTemplateColumn Header="Editar">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Edit" Click="EditItem"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Borrar">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Delete" Click="DeleteItem"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-            <ComboBox x:Name="SelectVehiculo" HorizontalAlignment="Left" Margin="52,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="28" />
-            <Label Content="RESERVAS" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="36" Margin="0,7,0,0" Grid.RowSpan="2"/>
-            <Label Content="Gestor:" HorizontalAlignment="Left" Height="32" Margin="672,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
-            <Label x:Name="txtcorreo" Content="Correo:" HorizontalAlignment="Left" Height="32" Margin="275,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20" RenderTransformOrigin="0.613,0.367"/>
-            <Label Content="Telefono:" HorizontalAlignment="Left" Height="32" Margin="455,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF4F4" FontSize="20" RenderTransformOrigin="0.113,0.5"/>
-            <Label Content="Seleccionar Vehiculo" HorizontalAlignment="Left" Height="32" Margin="40,116,0,0" Grid.Row="1" VerticalAlignment="Top" Width="193" FontSize="20" Foreground="#FFFFF9F9"/>
-            <TextBox x:Name="txtCorreo"
-                FontSize="13"
-                FontWeight="Medium"
-                FontFamily="Montserrat"                            
-                Foreground="White"
-                CaretBrush="LightGray"
-                BorderBrush="DarkGray"
-                BorderThickness="0,0,0,2"
-                Height="28"
-                VerticalContentAlignment="Center"
-                                     Margin="275,76,382,411"
-                Padding="20,0,0,0" Grid.Row="1"  Width="158">
-                <TextBox.Background>
-                    <ImageBrush 
-                                        AlignmentX="Left"
-                                        Stretch="Uniform"
-                                        />
-                </TextBox.Background>
-            </TextBox>
+                        <DataGridTemplateColumn Header="Editar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditItem"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Borrar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Click="DeleteItem"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <ComboBox x:Name="SelectVehiculo" HorizontalAlignment="Left" Margin="40,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="28" />
+                <Label Content="RESERVAS" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="36" Margin="0,7,0,0" Grid.RowSpan="2"/>
+                <Label Content="Gestor:" HorizontalAlignment="Left" Height="32" Margin="658,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20"/>
+                <Label x:Name="txtcorreo" Content="Correo:" HorizontalAlignment="Left" Height="32" Margin="275,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF9F9" FontSize="20" RenderTransformOrigin="0.613,0.367"/>
+                <Label Content="Telefono:" HorizontalAlignment="Left" Height="32" Margin="455,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="106" Foreground="#FFFFF4F4" FontSize="20" RenderTransformOrigin="0.113,0.5"/>
+                <Label Content="Seleccionar Vehiculo" HorizontalAlignment="Left" Height="32" Margin="26,116,0,0" Grid.Row="1" VerticalAlignment="Top" Width="192" FontSize="20" Foreground="#FFFFF9F9"/>
+                <TextBox x:Name="txtCorreo"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                                         Margin="257,76,385,396"
+                    Padding="20,0,0,0" Grid.Row="1"  Width="158">
+                    <TextBox.Background>
+                        <ImageBrush 
+                          AlignmentX="Left"
+                          Stretch="Uniform"/>
+                    </TextBox.Background>
+                </TextBox>
 
+                <TextBox x:Name="txtTelefono"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                                         Margin="448,76,194,396"
+                    Padding="20,0,0,0" Grid.Row="1" Width="158">
 
+                    <TextBox.Background>
+                        <ImageBrush 
+                         AlignmentX="Left"
+                         Stretch="Uniform"/>
+                    </TextBox.Background>
+                </TextBox>
 
-            <TextBox x:Name="txtTelefono"
-                FontSize="13"
-                FontWeight="Medium"
-                FontFamily="Montserrat"                            
-                Foreground="White"
-                CaretBrush="LightGray"
-                BorderBrush="DarkGray"
-                BorderThickness="0,0,0,2"
-                Height="28"
-                VerticalContentAlignment="Center"
-                                     Margin="455,76,202,411"
-                Padding="20,0,0,0" Grid.Row="1" Width="158">
-
-                <TextBox.Background>
-                    <ImageBrush 
-                                         AlignmentX="Left"
-                                        Stretch="Uniform"
-                    />
-                </TextBox.Background>
-            </TextBox>
-
-            <Button x:Name="btnReserva" 
-                        Content="RESERVAR " 
-                        HorizontalAlignment="Left" 
-                                            Height="45" Margin="635,135,0,0" 
-                        Grid.Row="1" VerticalAlignment="Top" 
-                        Width="160" 
-                        Style="{StaticResource RoundButtonTemplate}"
-                                            Click="btnReserva_Click" Background="DodgerBlue" Foreground="White" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.469,-0.111"/>
+                <Button x:Name="btnReserva" 
+                            Content="RESERVAR " 
+                            HorizontalAlignment="Left" 
+                                                Height="45" Margin="618,141,0,0" 
+                            Grid.Row="1" VerticalAlignment="Top" 
+                            Width="160" 
+                            Style="{StaticResource RoundButtonTemplate}"
+                                                Click="btnReserva_Click" Background="DodgerBlue" Foreground="White" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.469,-0.111"/>
 
 
-            <TextBox x:Name="txtPkReserva_"
-                FontSize="13"
-                FontWeight="Medium"
-                FontFamily="Montserrat"                            
-                Foreground="White"
-                CaretBrush="LightGray"
-                BorderBrush="DarkGray"
-                BorderThickness="0,0,0,2"
-                Height="28"
-                VerticalContentAlignment="Center"
-                                     Margin="24,76,741,411"
-                IsEnabled="False"
-                      Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="50"/>
-            <Button x:Name="btngoback"                          
-                BorderThickness="0"              
-                Foreground="White"
-                FontSize="12"
-                FontFamily="Montserrat"
-                Cursor="Hand"
-                    Margin="12,4,761,476" Grid.Row="1" Click="btngoback_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
-                </Button.Background>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#DA34AE"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#C62DAE"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Width="28" Height="28"
-                            CornerRadius="9"
-                            Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button x:Name="btngobackadmin"                          
-                BorderThickness="0"              
-                Foreground="White"
-                FontSize="12"
-                FontFamily="Montserrat"
-                Cursor="Hand"
-                    Margin="12,4,761,476" Grid.Row="1" Click="btngobackadmin_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
-                </Button.Background>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#DA34AE"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#C62DAE"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Width="28" Height="28"
-                            CornerRadius="9"
-                            Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Label Content="Fecha Salida" HorizontalAlignment="Left" Height="32" Margin="257,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124" FontSize="20" Foreground="#FFFFF9F9"/>
-            <Label Content="Fecha Regreso" HorizontalAlignment="Left" Height="38" Margin="455,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="139" FontSize="20" Foreground="#FFFFF9F9"/>
-            <ComboBox x:Name="SelectUser" HorizontalAlignment="Left" Margin="665,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <DatePicker x:Name="datePickerSalida"   HorizontalAlignment="Left" Margin="256,158,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-            <DatePicker x:Name="datePickerRegreso"  HorizontalAlignment="Left" Margin="455,158,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.958"/>
-            <Label Content="Nombre:" HorizontalAlignment="Left" Margin="97,39,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FFFFF3F3" FontSize="20" Height="32" Width="106"/>
-            <TextBox x:Name="txtNombre"
-                FontSize="13"
-                FontWeight="Medium"
-                FontFamily="Montserrat"                            
-                Foreground="White"
-                CaretBrush="LightGray"
-                BorderBrush="DarkGray"
-                BorderThickness="0,0,0,2"
-                Height="28"
-                VerticalContentAlignment="Center"
-                Margin="96,76,561,411"
-                Padding="20,0,0,0" Grid.Row="1"  Width="158">
+                <TextBox x:Name="txtPkReserva_"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                                         Margin="15,79,735,393"
+                    IsEnabled="False"
+                          Padding="20,0,0,0" Grid.Row="1" Background="{x:Null}" Width="50"/>
+                <Button x:Name="btngoback"                          
+                    BorderThickness="0"              
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                        Margin="13,4,760,468" Grid.Row="1" Click="btngoback_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/cerrar-sesion.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="28" Height="28"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btngobackadmin"                          
+                    BorderThickness="0"              
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Visibility="Collapsed"
+                        Margin="13,4,760,468" Grid.Row="1" Click="btngobackadmin_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="28" Height="28"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Fecha Salida" HorizontalAlignment="Left" Height="32" Margin="257,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124" FontSize="20" Foreground="#FFFFF9F9"/>
+                <Label Content="Fecha Regreso" HorizontalAlignment="Left" Height="38" Margin="455,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="139" FontSize="20" Foreground="#FFFFF9F9"/>
+                <ComboBox x:Name="SelectUser" HorizontalAlignment="Left" Margin="644,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+                <DatePicker x:Name="datePickerSalida"   HorizontalAlignment="Left" Margin="256,158,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <DatePicker x:Name="datePickerRegreso"  HorizontalAlignment="Left" Margin="455,158,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.958"/>
+                <Label Content="Nombre:" HorizontalAlignment="Left" Margin="97,39,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FFFFF3F3" FontSize="20" Height="32" Width="106"/>
+                <TextBox x:Name="txtNombre"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                    Margin="79,76,563,396"
+                    Padding="20,0,0,0" Grid.Row="1"  Width="158">
 
-                <TextBox.Background>
-                    <ImageBrush
-                                        AlignmentX="Left"
-                                        Stretch="Uniform"
-                                        />
-                </TextBox.Background>
-            </TextBox>
-            <Image HorizontalAlignment="Left" Height="29" Margin="635,78,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30"  RenderTransformOrigin="0.172,0.483"/>
-            <Image HorizontalAlignment="Left" Height="32" Margin="16,156,0,0" Grid.Row="1" VerticalAlignment="Top" Width="31"/>
-            <Label Content="ID" HorizontalAlignment="Left" Margin="40,39,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="18" Height="32"/>
-
-
-
-        </Grid>
+                    <TextBox.Background>
+                        <ImageBrush
+                            AlignmentX="Left"
+                            Stretch="Uniform"/>
+                    </TextBox.Background>
+                </TextBox>
+                <Image HorizontalAlignment="Left" Height="29" Margin="635,78,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30"  RenderTransformOrigin="0.172,0.483"/>
+                <Image HorizontalAlignment="Left" Height="32" Margin="16,156,0,0" Grid.Row="1" VerticalAlignment="Top" Width="31"/>
+                <Label Content="ID" HorizontalAlignment="Left" Margin="40,39,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="18" Height="32"/>
+            </Grid>
+        </Border>
     </Border>
 </Window>

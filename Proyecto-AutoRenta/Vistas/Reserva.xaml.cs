@@ -48,6 +48,7 @@ namespace Proyecto_AutoRenta.Vistas
             if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
             {
                 btngobackadmin.Visibility = Visibility.Visible;
+                btngoback.Visibility = Visibility.Collapsed;
             }
             else
             {
