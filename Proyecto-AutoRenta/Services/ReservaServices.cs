@@ -123,7 +123,7 @@ namespace Proyecto_AutoRenta.Services
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró ningún usuario con el ID especificado.");
+                        MessageBox.Show("No se encontró ningúna reserva con el ID especificado.");
                     }
                 }
 

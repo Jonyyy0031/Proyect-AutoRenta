@@ -66,14 +66,21 @@ namespace Proyecto_AutoRenta.Vistas
                 MessageBox.Show("Por favor, completa todos los campos obligatorios.");
                 return;
             }
+            //******************
+            else if (!double.TryParse(txtTelefono.Text, out double num))
+            {
+                MessageBox.Show("Ingrese correctamente el numero de telefono ");
+                return;
+            }
+            //*****************
 
-            if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today)
+            else if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today)
             {
                 MessageBox.Show("Las fechas de salida y regreso no pueden ser anteriores al día de hoy.");
                 return;
             }
 
-            if (int.TryParse(txtPkReserva_.Text, out ID))
+            else if (int.TryParse(txtPkReserva_.Text, out ID))
             {
 
                 Reserve reserve = new Reserve();
