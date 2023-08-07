@@ -153,6 +153,7 @@
                 FontSize="12"
                 FontFamily="Montserrat"
                 Cursor="Hand"
+                Visibility="Collapsed"
                 Margin="10,14,741,379" Click="btngobackadmin_Click" RenderTransformOrigin="0.757,-0.082" Grid.RowSpan="2">
                     <Button.Background>
                         <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>

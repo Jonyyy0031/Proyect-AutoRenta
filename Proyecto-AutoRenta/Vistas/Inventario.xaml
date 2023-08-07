@@ -243,8 +243,6 @@
                     <ComboBoxItem Content="Eléctrico" />
                     <ComboBoxItem Content="Convertibles" />
                     <ComboBoxItem Content="Sedanes" />
-
-                    <!-- Add more items as needed -->
                 </ComboBox>
 
                 <Label Content="ID" HorizontalAlignment="Left" Margin="52,48,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
@@ -254,7 +252,6 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                        Visibility="Collapsed"
                             Click="BtnFlechaIzquierda_Click" Margin="10,5,765,489" Grid.Row="1">
                     <Image Source="/Images/cerrar-sesion.png"
                     Stretch="Fill"/>
