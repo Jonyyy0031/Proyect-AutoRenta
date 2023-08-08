@@ -102,6 +102,7 @@ namespace Proyecto_AutoRenta.Services
                     usuario.Nombre = request.Nombre;
                     usuario.UserName = request.UserName;
                     usuario.Password = request.Password;
+                    usuario.FkRol = request.FkRol;
                     //_context.Update(usuario);
                     _context.Entry(usuario).State = EntityState.Modified;
                     _context.SaveChanges();

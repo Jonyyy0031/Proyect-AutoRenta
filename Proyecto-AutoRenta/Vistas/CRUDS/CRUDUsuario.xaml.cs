@@ -39,7 +39,13 @@ namespace Proyecto_AutoRenta.Vistas
                 usuario.Nombre = txtNombre.Text;
                 usuario.UserName = txtUserName.Text;
                 usuario.Password = txtPassword.Text;
+                usuario.FkRol = int.Parse(SelectRol.SelectedValue.ToString());
                 services.UpdateUser(usuario);
+                txtPkUser.Clear();
+                txtNombre.Clear();
+                txtUserName.Clear();
+                txtPassword.Clear();
+                SelectRol.SelectedIndex = -1;
                 MessageBox.Show("Usuario actualizado");
                 GetUserTable();
             }
@@ -56,6 +62,7 @@ namespace Proyecto_AutoRenta.Vistas
                 txtNombre.Clear();
                 txtUserName.Clear();
                 txtPassword.Clear();
+                SelectRol.SelectedIndex = -1;
 
                 MessageBox.Show("Se agregó correctamente");
                 GetUserTable();

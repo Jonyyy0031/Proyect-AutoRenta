@@ -108,7 +108,7 @@ namespace Proyecto_AutoRenta.Services
                     {
                         _context.Pagos.Remove(pagos);
                         _context.SaveChanges();
-                        MessageBox.Show("El pago ha sido eliminado.");
+                       
                     }
                     else
                     {

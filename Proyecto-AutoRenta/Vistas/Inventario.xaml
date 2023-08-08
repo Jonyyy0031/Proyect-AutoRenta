@@ -162,7 +162,7 @@
                 <Label Content="Tipo de vehículo" HorizontalAlignment="Left" Margin="609,52,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
                 <Label Content="Tarifa de renta" HorizontalAlignment="Left" Margin="402,48,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"/>
                 <Button x:Name="btnAgregar"
-                    Content="Agregar"
+                    Content="Guardar"
                     HorizontalAlignment="Center"
                       Margin="0,459,0,0"
                      Grid.Row="1"

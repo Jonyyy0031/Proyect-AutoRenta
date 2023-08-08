@@ -208,7 +208,7 @@
                 </TextBox>
 
                 <Button x:Name="btnAdd"
-                    Content="Añadir"
+                    Content="Guardar"
                     HorizontalAlignment="Center"
                       Margin="0,462,0,0"
                      Grid.Row="1"

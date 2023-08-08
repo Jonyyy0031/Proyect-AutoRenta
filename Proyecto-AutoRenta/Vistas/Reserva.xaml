@@ -195,7 +195,7 @@
                 </TextBox>
 
                 <Button x:Name="btnReserva" 
-                            Content="RESERVAR " 
+                            Content="Guardar" 
                             HorizontalAlignment="Left" 
                                                 Height="45" Margin="618,141,0,0" 
                             Grid.Row="1" VerticalAlignment="Top" 
@@ -225,7 +225,7 @@
                     Cursor="Hand"
                         Margin="13,4,760,468" Grid.Row="1" Click="btngoback_Click">
                     <Button.Background>
-                        <ImageBrush ImageSource="/Images/cerrar-sesion.png"/>
+                        <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
                     </Button.Background>
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
@@ -248,6 +248,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                
                 <Button x:Name="btngobackadmin"                          
                     BorderThickness="0"              
                     Foreground="White"
