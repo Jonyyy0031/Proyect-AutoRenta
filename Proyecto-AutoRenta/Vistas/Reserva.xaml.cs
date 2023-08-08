@@ -48,7 +48,6 @@ namespace Proyecto_AutoRenta.Vistas
             if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
             {
                 btngobackadmin.Visibility = Visibility.Visible;
-                btngoback.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -67,17 +66,28 @@ namespace Proyecto_AutoRenta.Vistas
                 MessageBox.Show("Por favor, completa todos los campos obligatorios.");
                 return;
             }
-            //******************
-            else if (!double.TryParse(txtTelefono.Text, out double num))
-            {
-                MessageBox.Show("Ingrese correctamente el numero de telefono ");
-                return;
-            }
-            //*****************
+
 
             else if (fechaSalida < DateTime.Today || fechaRegreso < DateTime.Today)
             {
                 MessageBox.Show("Las fechas de salida y regreso no pueden ser anteriores al día de hoy.");
+                return;
+            }
+
+            else if (fechaSalida == fechaRegreso)
+            {
+                MessageBox.Show("la fecha de salida no puede ser igual que la de regreso");
+                return;
+            }
+            else if (fechaRegreso < fechaSalida)
+            {
+                MessageBox.Show("La fecha de regreso no puede ser menor la de salida ");
+                return;
+            }
+
+            else if (!double.TryParse(txtTelefono.Text, out double tarifa) || tarifa < 0 || tarifa > 10000000000)
+            {
+                MessageBox.Show("Ingrese correctamente el numero de telefono ");
                 return;
             }
 
@@ -138,6 +148,7 @@ namespace Proyecto_AutoRenta.Vistas
                 services.Updatereser(reserve);
                 payservices.UpdatePay(booking);
 
+                txtNombre.Clear();
                 txtPkReserva_.Clear();
                 txtCorreo.Clear();
                 txtTelefono.Clear();
